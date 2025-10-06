@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Superstars Only</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="grid-root">
+    <!-- Menu column (1/6) -->
+    <aside class="menu-col">
+      <h1 class="site-title">Superstars Only</h1>
+
+      <!-- Control panel -->
+      <div class="control-panel" role="group" aria-label="Playback controls">
+        <button id="playPauseBtn" class="ctrl-btn" title="Play / Pause">⏯</button>
+        <button id="slowBtn" class="ctrl-btn" title="Slow down">⏮</button>
+        <button id="fastBtn" class="ctrl-btn" title="Fast forward">⏭</button>
+        <div id="speedDisplay" class="speed-display">1×</div>
+      </div>
+
+      <!-- Category buttons -->
+      <nav class="category-panel" aria-label="Main categories">
+        <button class="cat-btn" data-target="shop" id="btn-shop">Shop</button>
+        <button class="cat-btn" data-target="about" id="btn-about">About</button>
+        <button class="cat-btn" data-target="stockists" id="btn-stockists">Stockists</button>
+        <button class="cat-btn" data-target="interviews" id="btn-interviews">Interviews</button>
+      </nav>
+    </aside>
+
+    <!-- Main-body column (3/6) -->
+    <main class="main-col" id="mainBody">
+      <!-- Shop -->
+      <section id="shop" class="content-block">
+        <div class="shop-area" id="shopArea">
+          <!-- images will be created by JS -->
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="content-block">
+        <div class="about-area">
+          <p id="aboutText">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
+            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia curae;
+            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
+            risus, nec varius lorem lacus ac nunc.
+          </p>
+        </div>
+      </section>
+
+      <!-- Stockists -->
+      <section id="stockists" class="content-block">
+        <div class="stockists-area" id="stockistsArea">
+          <!-- boxes created by JS -->
+        </div>
+      </section>
+
+      <!-- Interviews -->
+      <section id="interviews" class="content-block">
+        <div class="interviews-area" id="interviewsArea">
+          <!-- falling names created by JS -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Video feed (2/6) - desktop only -->
+    <aside class="video-col" id="videoCol">
+      <iframe
+        src="https://iamfull.superstarsonlymag.com/"
+        title="Superstars Only feed"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

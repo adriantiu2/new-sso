@@ -1,0 +1,287 @@
+/* Basic reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Global font & size (user requested myriad pro size 10) */
+html, body {
+  height: 100%;
+  font-family: "Myriad Pro", "Times New Roman", serif;
+  font-size: 10pt; /* requested size */
+  color: #000;
+  background: #fff;
+}
+
+/* Grid layout: 6 columns on desktop */
+.grid-root {
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr; /* 1/6 : 3/6 : 2/6 proportionally */
+  gap: 12px;
+  height: 100vh;
+  padding: 12px;
+  align-items: start;
+}
+
+/* columns */
+.menu-col {
+  border: 1px solid #000;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 160px;
+  max-width: 320px;
+}
+
+.main-col {
+  border: 1px solid #000;
+  padding: 6px 10px 10px 10px; /* slightly closer to top */
+  overflow: hidden;
+  position: relative;
+}
+
+.video-col {
+  border: 1px solid #000;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* iframe sizing */
+.video-col iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: none;
+}
+
+/* Title styling: Arial Black at full width */
+.site-title {
+  font-family: "Arial Black", "Arial Black", Gadget, sans-serif;
+  text-align: left;
+  font-size: 1.2em;
+  letter-spacing: 0.02em;
+  width: 100%;
+}
+
+/* Control panel styling */
+.control-panel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid #000;
+  width: 100%;
+}
+
+.ctrl-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #000;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctrl-btn:active { transform: translateY(1px); }
+
+.speed-display {
+  margin-left: auto;
+  border-left: 1px solid #000;
+  padding-left: 6px;
+  min-width: 36px;
+  text-align: center;
+}
+
+/* Category panel */
+.category-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cat-btn {
+  display: block;
+  text-align: center;
+  padding: 8px 6px;
+  border: 1px solid #000;
+  background: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* active state */
+.cat-btn.active {
+  background: #e6e6e6;
+}
+
+/* Content blocks */
+.content-block {
+  position: absolute;
+  top: 4px; /* closer to top */
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Ensure each block stacks; higher z-index later sections on top */
+#shop { z-index: 1; }
+#about { z-index: 2; }
+#stockists { z-index: 3; }
+#interviews { z-index: 4; }
+
+/* hidden */
+.hidden { display: none; }
+
+/* Shop images */
+.shop-area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+/* Ensure anchors are absolutely positioned so transforms move within shop-area walls */
+.shop-area a {
+  position: absolute;
+  display: block;
+}
+
+/* bouncing items (images) */
+.shop-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid hotpink; /* thin pink stroke */
+  cursor: pointer;
+}
+
+/* About area */
+.about-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start; /* closer to top */
+  justify-content: flex-start; /* closer to left */
+  padding: 8px 12px;
+}
+
+.about-area p {
+  max-width: 38em;
+  line-height: 1.4;
+  transition: filter 0.1s linear;
+}
+
+/* Stockists layout: boxes */
+.stockists-area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-start; /* closer to top */
+  justify-content: flex-start; /* closer to left */
+  overflow: hidden;
+  padding: 8px 12px;
+}
+
+.stockist-box {
+  width: 120px;
+  height: 70px;
+  background: beige;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6px;
+  position: absolute;
+  transition: transform 0.8s ease;
+}
+
+/* Interviews (falling names) */
+.interviews-area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.interview-name {
+  position: absolute;
+  white-space: nowrap;
+  text-decoration: underline;
+  cursor: pointer;
+  user-select: none;
+}
+.main-col {
+  border: 1px solid #000;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+  min-height: 80vh; /* ✅ ensures visible height even with empty sections */
+}
+.content-block {
+  min-height: 0;
+}
+.grid-root {
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  grid-template-rows: 1fr; /* make them all the same height */
+  height: 100vh;
+  align-items: stretch; /* ✅ ensures each column stretches to full height */
+}
+
+
+/* Responsive */
+@media (max-width: 800px) {
+  /* prevent page scroll; we'll size regions exactly */
+  html, body { height: 100%; overflow: hidden; }
+
+  /* collapse to single column: hide video */
+  .grid-root {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    height: 100vh; /* fill viewport */
+    padding-bottom: 0; /* no extra space */
+  }
+  .video-col { display: none; }
+  .menu-col { order: 1; width: 100%; max-width: none; }
+  /* Main body height accounts for fixed control panel */
+  .main-col { order: 2; width: 100%; height: calc(100vh - 72px); min-height: calc(100vh - 72px); }
+
+  /* Fixed bottom control panel on mobile */
+  .control-panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    border-top: 1px solid #000;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    background: #fff;
+    padding: 8px;
+    height: 72px; /* fixed height */
+    display: flex;
+    align-items: center;
+  }
+
+  /* Category buttons as 2x2 grid on mobile */
+  .category-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  /* Stockists: keep JS positioning but adjust for mobile layout */
+  .stockists-area {
+    padding: 8px;
+  }
+}
+
+/* tiny polish */
+button:focus { outline: 2px dashed #333; outline-offset: 2px; }
