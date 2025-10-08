@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Eric Heinz - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,34 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Eric Heinz</h2>
+          <div class="interview-content">
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Eric, your work explores the intersection of sound and visual art. How do you approach creating these multimedia experiences?</div>
+            
+            <div class="interview-speaker">Eric Heinz</div>
+            <div class="interview-response">Sound and image are inseparable for me. I think of them as different frequencies of the same energy. When I'm creating, I'm not thinking about adding sound to visuals or visuals to sound—I'm thinking about how to make the whole experience feel like one unified organism.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your installations often respond to environmental data in real-time. What interests you about this approach?</div>
+            
+            <div class="interview-speaker">Eric Heinz</div>
+            <div class="interview-response">I'm fascinated by the idea that art can be alive, that it can breathe and change and respond to the world around it. When you walk into one of my installations, you're not just experiencing my vision—you're experiencing the space itself, the air, the light, the energy of everyone else who's there.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">How do you balance technical complexity with artistic expression?</div>
+            
+            <div class="interview-speaker">Eric Heinz</div>
+            <div class="interview-response">The technology should be invisible. If people are thinking about the code or the sensors or the algorithms, then I've failed. The technology is just the medium—like paint or clay—and the art is what emerges from that medium. I want people to feel something, not to think about how it was made.</div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -127,15 +118,6 @@
       </nav>
     </aside>
 
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </aside>
   </div>
 
   <script src="script.js"></script>

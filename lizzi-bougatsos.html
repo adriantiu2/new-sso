@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Lizzi Bougatsos - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,34 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Lizzi Bougatsos</h2>
+          <div class="interview-content">
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Lizzi, your work spans multiple mediums—music, visual art, performance. How do you approach these different forms of expression?</div>
+            
+            <div class="interview-speaker">Lizzi Bougatsos</div>
+            <div class="interview-response">I don't really think of them as separate things. Sound has color, color has rhythm, movement has melody. When I'm creating, I'm just trying to capture whatever energy is moving through me at that moment, whether that comes out as a song, a painting, or a performance.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your performances often involve found objects and unconventional materials. What draws you to this approach?</div>
+            
+            <div class="interview-speaker">Lizzi Bougatsos</div>
+            <div class="interview-response">I love the idea that everything has potential, that any object can become an instrument or a canvas. There's something magical about taking something that's been discarded or overlooked and giving it new life, new meaning. It's about finding the extraordinary in the ordinary.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">How do you see the relationship between art and everyday life?</div>
+            
+            <div class="interview-speaker">Lizzi Bougatsos</div>
+            <div class="interview-response">Art isn't something that happens in a gallery or a studio—it's something that happens in the kitchen, on the street, in the shower. I want to make work that reminds people that creativity is everywhere, that we're all artists, that every moment has the potential to be beautiful and meaningful.</div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -127,15 +118,6 @@
       </nav>
     </aside>
 
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </aside>
   </div>
 
   <script src="script.js"></script>

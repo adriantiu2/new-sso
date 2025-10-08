@@ -16,7 +16,25 @@ const shopImageUrls = [
   "https://picsum.photos/200/310?random=4"
 ];
 const numStockists = 12;
-const interviewsList = Array.from({length:15}, (_,i) => `Interviewee ${i+1}`);
+const interviewsList = [
+  "Yuan Lee",
+  "Alex auder", 
+  "Molly soda",
+  "Princess Demeny",
+  "Princess superstar",
+  "Eric Heinz",
+  "Neghasi armada",
+  "Kevin rezvani",
+  "Melanie Wu",
+  "Ingrid Lu",
+  "Lizzi Bougatsos",
+  "Rachel Giannascoli",
+  "Liana Satenstein",
+  "Lexi Langil",
+  "Garret Sander",
+  "Puppeteer collective",
+  "Moh motion"
+];
 
 /* --- Global state --- */
 let playing = true;
@@ -52,6 +70,29 @@ catButtons.forEach(btn => {
     if (isActive) {
       block.classList.remove("hidden");
       block.setAttribute("aria-hidden", "false");
+      
+      // Reinitialize sections when they become visible to ensure proper positioning
+      if (target === "stockists") {
+        setTimeout(() => {
+          // Clear existing stockist boxes
+          stockistBoxes.forEach(box => box.el.remove());
+          stockistBoxes.length = 0;
+          // Reinitialize with proper dimensions
+          initStockists();
+        }, 50);
+                  } else if (target === "interviews") {
+                    // Check if other sections are active - if so, use longer delay
+                    const otherActiveSections = document.querySelectorAll('.content-block:not(.hidden)');
+                    const delay = otherActiveSections.length > 1 ? 200 : 100;
+                    
+                    setTimeout(() => {
+                      // Clear existing interview elements
+                      interviewEls.forEach(el => el.remove());
+                      interviewEls.length = 0;
+                      // Reinitialize with proper dimensions
+                      initInterviews();
+                    }, delay);
+                  }
     } else {
       block.classList.add("hidden");
       block.setAttribute("aria-hidden", "true");
@@ -119,9 +160,41 @@ function initShop() {
   });
 }
 
-/* --- ABOUT: hue rotation --- */
+/* --- ABOUT: hue rotation and word spinning --- */
 const aboutText = document.getElementById("aboutText");
 let aboutHue = 0;
+const aboutWords = []; // {el, rotation, speed}
+let currentSpinningWord = 0;
+let wordSwitchTimer = 0;
+const wordSwitchInterval = 1.5; // seconds between word switches
+
+function initAbout() {
+  if (!aboutText) return;
+  
+  // Get the text content and split into words
+  const text = aboutText.textContent;
+  const words = text.split(/\s+/);
+  
+  // Clear the paragraph and rebuild with spinning words
+  aboutText.innerHTML = '';
+  
+  words.forEach((word, index) => {
+    const span = document.createElement('span');
+    span.textContent = word;
+    span.className = 'about-word';
+    span.style.display = 'inline-block';
+    span.style.transformOrigin = 'center';
+    aboutText.appendChild(span);
+    
+    // Add a space after each word (except the last one)
+    if (index < words.length - 1) {
+      aboutText.appendChild(document.createTextNode(' '));
+    }
+    
+    // All words start with no rotation, only one will spin at a time
+    aboutWords.push({ el: span, rotation: 0, speed: 0 });
+  });
+}
 
 /* --- STOCKISTS: boxes that shuffle/build shapes --- */
 const stockistsArea = document.getElementById("stockistsArea");
@@ -136,12 +209,30 @@ function initStockists() {
   const cols = isMobile ? 2 : 4;
   const rows = isMobile ? 6 : 3;
   
-  const pad = 12;
+  // Get the actual area dimensions for better spacing
+  // Use getBoundingClientRect for more reliable dimensions
+  const rect = area.getBoundingClientRect();
+  const areaW = rect.width || area.clientWidth || 400;
+  const areaH = rect.height || area.clientHeight || 300;
+  
+  const pad = 20; // increased padding
   const boxW = 120;
   const boxH = 70;
-  // compute top-left aligned grid within area
-  const startX = 8; // near left
-  const startY = 8; // near top
+  
+  // Calculate spacing to use more of the available area
+  const availableWidth = areaW - 40; // leave some margin
+  const availableHeight = areaH - 40; // leave some margin
+  
+  // Calculate spacing between boxes to fill more space
+  const spacingX = Math.max(pad, (availableWidth - (cols * boxW)) / (cols - 1));
+  const spacingY = Math.max(pad, (availableHeight - (rows * boxH)) / (rows - 1));
+  
+  // Center the grid in the available space
+  const totalGridWidth = (cols * boxW) + ((cols - 1) * spacingX);
+  const totalGridHeight = (rows * boxH) + ((rows - 1) * spacingY);
+  const startX = Math.max(20, (areaW - totalGridWidth) / 2);
+  const startY = Math.max(20, (areaH - totalGridHeight) / 2);
+  
   for (let i=0;i<numStockists;i++) {
     const el = document.createElement("div");
     el.className = "stockist-box";
@@ -149,11 +240,11 @@ function initStockists() {
     const address = `123${i} Star Ave, Suite ${10+i}`;
     el.innerHTML = `<strong>${shopName}</strong><br><small>${address}</small>`;
     area.appendChild(el);
-    // compute grid pos
+    // compute grid pos with better spacing
     const r = Math.floor(i/cols);
     const c = i % cols;
-    const tx = startX + c * (boxW + pad);
-    const ty = startY + r * (boxH + pad);
+    const tx = startX + c * (boxW + spacingX);
+    const ty = startY + r * (boxH + spacingY);
     el.style.transform = `translate(${tx}px, ${ty}px)`;
     stockistBoxes.push({el, tx, ty, idx: i});
   }
@@ -168,19 +259,50 @@ const interviewsArea = document.getElementById("interviewsArea");
 const interviewEls = [];
 function initInterviews() {
   // Ensure area has dimensions before positioning
-  const areaW = Math.max(interviewsArea.clientWidth, 300); // fallback width
-  const areaH = Math.max(interviewsArea.clientHeight, 200); // fallback height
+  // Use getBoundingClientRect for more reliable dimensions
+  const rect = interviewsArea.getBoundingClientRect();
+  let areaW = Math.max(rect.width || interviewsArea.clientWidth, 300);
+  const areaH = Math.max(rect.height || interviewsArea.clientHeight, 200);
+  
+  // If we're getting small dimensions, estimate based on window width
+  // The main column should be about 3/6 of the total width
+  if (areaW < 400) {
+    const estimatedMainColWidth = window.innerWidth * 0.5; // 3/6 of total width
+    areaW = Math.max(estimatedMainColWidth - 40, 400); // subtract padding
+  }
+  
+  // Additional check: if other sections are active, force a larger width
+  const activeSections = document.querySelectorAll('.content-block:not(.hidden)');
+  if (activeSections.length > 1 && areaW < 600) {
+    areaW = Math.max(window.innerWidth * 0.4, 600); // Force larger width when multiple sections active
+  }
+  
+  // Debug: log dimensions to see what we're getting
+  console.log('Interview area dimensions:', { 
+    areaW, 
+    areaH, 
+    rectWidth: rect.width, 
+    clientWidth: interviewsArea.clientWidth, 
+    windowWidth: window.innerWidth,
+    activeSectionsCount: activeSections.length,
+    activeSections: Array.from(activeSections).map(s => s.id)
+  });
+  
+  // Create URL-friendly names for links
+  const interviewUrls = interviewsList.map(name => 
+    name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+  );
   
   for (let i=0;i<interviewsList.length;i++) {
     const a = document.createElement("a");
-    a.href = `#interview-${i+1}`;
+    a.href = `${interviewUrls[i]}.html`;
     a.className = "interview-name";
     a.textContent = interviewsList[i];
     interviewsArea.appendChild(a);
     
-    // random x across full width, random start y (above top)
+    // random x across full width, random start y (above top with more variation)
     const x = Math.random() * Math.max(1, areaW - 40);
-    const y = -Math.random() * areaH;
+    const y = -Math.random() * areaH * 2; // Start from further above with more variation
     const speed = 30 + Math.random()*80; // px/sec baseline
     
     // set position immediately
@@ -192,9 +314,14 @@ function initInterviews() {
 
 /* --- Resizing concerns --- */
 window.addEventListener("resize", () => {
-  // If necessary, reflow initial placements for some components
-  // Note: for simplicity we do not fully recompute everything on resize,
-  // but ensure shop and stockists have correct bounding sizes for collisions.
+  // Reinitialize stockists on resize to recalculate spacing
+  if (stockistBoxes.length > 0) {
+    // Clear existing boxes
+    stockistBoxes.forEach(box => box.el.remove());
+    stockistBoxes.length = 0;
+    // Reinitialize with new spacing
+    initStockists();
+  }
 });
 
 /* --- Animation loop --- */
@@ -250,11 +377,44 @@ function updateShop(deltaSeconds) {
 /* ABOUT update */
 function updateAbout(deltaSeconds) {
   if (!aboutText) return;
+  
   // hue shift speed baseline: 30 degrees per second
   aboutHue += 30 * deltaSeconds;
   aboutHue = aboutHue % 360;
   // apply CSS filter hue-rotate
   aboutText.style.filter = `hue-rotate(${aboutHue}deg)`;
+  
+  // update word switching timer
+  wordSwitchTimer += deltaSeconds;
+  if (wordSwitchTimer >= wordSwitchInterval) {
+    // Switch to random word
+    wordSwitchTimer = 0;
+    const newSpinningWord = Math.floor(Math.random() * aboutWords.length);
+    currentSpinningWord = newSpinningWord;
+    
+    // Reset all words to no rotation and ensure they're at original position
+    aboutWords.forEach(word => {
+      word.rotation = 0;
+      word.speed = 0;
+      word.el.style.transform = 'rotate(0deg)';
+    });
+    
+    // Set the new random spinning word with faster speed
+    const spinningWord = aboutWords[currentSpinningWord];
+    spinningWord.speed = 360; // 360 degrees per second (1 full rotation per second)
+  }
+  
+  // update word spinning - only the current word spins
+  aboutWords.forEach(word => {
+    if (word.speed > 0) {
+      word.rotation += word.speed * deltaSeconds;
+      // Keep rotation clean by using modulo to prevent accumulation issues
+      const cleanRotation = word.rotation % 360;
+      word.el.style.transform = `rotate(${cleanRotation}deg)`;
+    } else {
+      word.el.style.transform = `rotate(0deg)`;
+    }
+  });
 }
 
 /* STOCKISTS update - shuffle positions periodically */
@@ -313,8 +473,12 @@ function init() {
   catButtons.forEach(btn => btn.classList.remove("active"));
 
   initShop();
-  initStockists();
   initInterviews();
+  initAbout();
+  
+  // Initialize stockists immediately - they'll be repositioned when shown
+  initStockists();
+  
   // start animation
   lastTs = null;
   if (playing) loop(performance.now());

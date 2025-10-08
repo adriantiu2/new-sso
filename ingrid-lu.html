@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Ingrid Lu - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,34 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Ingrid Lu</h2>
+          <div class="interview-content">
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Ingrid, your work explores the intersection of data visualization and emotional expression. How do you approach making abstract data feel personal and meaningful?</div>
+            
+            <div class="interview-speaker">Ingrid Lu</div>
+            <div class="interview-response">Data is just information, but information becomes meaningful when it connects to human experience. I'm interested in finding the emotional core of quantitative information—how do you make a spreadsheet feel like a love letter, or a graph feel like a memory?</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your recent project visualized the emotional patterns of social media users. What did you discover about the relationship between data and feeling?</div>
+            
+            <div class="interview-speaker">Ingrid Lu</div>
+            <div class="interview-response">The most interesting thing was how predictable our emotions can be, but also how unique each person's emotional fingerprint is. We all experience joy and sadness, but the patterns, the rhythms, the ways we move through those feelings—that's what makes us human. Data can reveal that humanity.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">What's the future of data art? How do you see it evolving?</div>
+            
+            <div class="interview-speaker">Ingrid Lu</div>
+            <div class="interview-response">I think we're moving toward more intimate, more personal data experiences. Instead of big, abstract visualizations, we'll see art that responds to your heartbeat, your breathing, your mood. The goal isn't to make data beautiful—it's to make it feel alive, to make it feel like it understands you.</div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -127,15 +118,6 @@
       </nav>
     </aside>
 
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </aside>
   </div>
 
   <script src="script.js"></script>

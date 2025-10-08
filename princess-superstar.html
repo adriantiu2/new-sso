@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Princess superstar - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,34 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Princess superstar</h2>
+          <div class="interview-content">
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Princess Superstar, you've been a pioneer in digital performance art. How do you see the relationship between online and offline identity?</div>
+            
+            <div class="interview-speaker">Princess Superstar</div>
+            <div class="interview-response">The line between online and offline is completely artificial at this point. We're all cyborgs now, whether we realize it or not. My work is about embracing that hybridity, about being fully human and fully digital simultaneously.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your performances often involve real-time audience interaction through digital platforms. What draws you to this collaborative approach?</div>
+            
+            <div class="interview-speaker">Princess Superstar</div>
+            <div class="interview-response">Art isn't something that happens to you—it's something you participate in. I want to break down the barrier between performer and audience, creator and consumer. When people become part of the art, it becomes something we're all making together.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">What's the future of performance art in an increasingly digital world?</div>
+            
+            <div class="interview-speaker">Princess Superstar</div>
+            <div class="interview-response">The future is already here. We're living in a world where the most intimate moments are shared publicly, where identity is fluid and performative, where reality and simulation are indistinguishable. Performance art isn't just adapting to this world—it's helping us understand it.</div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -127,15 +118,6 @@
       </nav>
     </aside>
 
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </aside>
   </div>
 
   <script src="script.js"></script>

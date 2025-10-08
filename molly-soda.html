@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Molly soda - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,34 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Molly soda</h2>
+          <div class="interview-content">
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Molly, your work often explores themes of identity and self-expression in digital spaces. What inspired you to focus on these particular themes?</div>
+            
+            <div class="interview-speaker">Molly Soda</div>
+            <div class="interview-response">I grew up online, so I've always been interested in how we construct and perform identity in digital spaces. There's this fascinating tension between authenticity and performance—how much of our online selves is "real" and how much is curated? I want to explore that gray area.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your use of bright, saturated colors and playful imagery creates a very distinctive aesthetic. How did you develop this visual language?</div>
+            
+            <div class="interview-speaker">Molly Soda</div>
+            <div class="interview-response">I was really influenced by early internet aesthetics—the garish colors, the pixelated graphics, the way everything felt both artificial and deeply personal. I wanted to capture that feeling of being overwhelmed by digital stimuli while also finding beauty in the chaos.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">What role do you think social media plays in contemporary art and culture?</div>
+            
+            <div class="interview-speaker">Molly Soda</div>
+            <div class="interview-response">Social media has democratized art in some ways—anyone can share their work and find an audience. But it's also created new pressures around visibility and validation. I'm interested in how artists navigate that landscape, how we maintain creative integrity while engaging with these platforms.</div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -127,15 +118,6 @@
       </nav>
     </aside>
 
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </aside>
   </div>
 
   <script src="script.js"></script>

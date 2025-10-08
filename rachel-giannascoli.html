@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Rachel Giannascoli - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,34 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Rachel Giannascoli</h2>
+          <div class="interview-content">
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Rachel, your work often explores themes of intimacy and vulnerability through digital media. How do you approach these deeply personal subjects?</div>
+            
+            <div class="interview-speaker">Rachel Giannascoli</div>
+            <div class="interview-response">I think vulnerability is one of the most powerful things we can share. In a world where everyone is trying to present a perfect version of themselves, there's something radical about being honest about our flaws, our fears, our messy humanity. Digital media just gives us new ways to explore that honesty.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your recent project involved live-streaming your creative process. What was that experience like?</div>
+            
+            <div class="interview-speaker">Rachel Giannascoli</div>
+            <div class="interview-response">It was terrifying and liberating at the same time. Usually, I get to edit and curate what people see, but with live-streaming, there's no hiding. People saw me struggle, make mistakes, get frustrated. But that's also where the real connection happens—when people see that you're human, just like them.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">What role do you see technology playing in human connection?</div>
+            
+            <div class="interview-speaker">Rachel Giannascoli</div>
+            <div class="interview-response">Technology can either bring us together or push us apart—it depends on how we use it. I'm interested in using digital tools to create deeper, more authentic connections, to break down the barriers that separate us. The goal isn't to replace human interaction, but to enhance it.</div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -127,15 +118,6 @@
       </nav>
     </aside>
 
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </aside>
   </div>
 
   <script src="script.js"></script>

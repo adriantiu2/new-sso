@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Neghasi armada - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,34 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Neghasi armada</h2>
+          <div class="interview-content">
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Neghasi, your work often incorporates elements of Afrofuturism and speculative fiction. What draws you to these themes?</div>
+            
+            <div class="interview-speaker">Neghasi Armada</div>
+            <div class="interview-response">Afrofuturism isn't just about imagining the future—it's about reclaiming the past and reimagining the present. I'm interested in creating worlds where Black people aren't just surviving, but thriving, where we're not just present in the future, but shaping it.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your recent series explores themes of diaspora and belonging. How do you approach these complex emotional landscapes?</div>
+            
+            <div class="interview-speaker">Neghasi Armada</div>
+            <div class="interview-response">The diaspora experience is about being from everywhere and nowhere at the same time. There's this constant negotiation of identity, of trying to hold onto traditions while adapting to new contexts. My work is about finding beauty and power in that complexity, in that in-between space.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">What role do you see art playing in social change and activism?</div>
+            
+            <div class="interview-speaker">Neghasi Armada</div>
+            <div class="interview-response">Art can't change the world by itself, but it can change how people see the world. It can create empathy, spark conversations, and help people imagine possibilities they hadn't considered. Sometimes the most radical thing you can do is to show people a different way of being human.</div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -127,15 +118,6 @@
       </nav>
     </aside>
 
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </aside>
   </div>
 
   <script src="script.js"></script>

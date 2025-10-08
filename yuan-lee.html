@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Yuan Lee - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,46 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Yuan Lee</h2>
+          <div class="interview-content">
+            <div class="interview-pair">
+              <div class="interview-speaker">Interviewer</div>
+              <div class="interview-response">Yuan, thank you for taking the time to speak with us today. Your work has been gaining a lot of attention lately. Can you tell us about your creative process and what drives your artistic vision?</div>
+            </div>
+            
+            <div class="interview-pair">
+              <div class="interview-speaker">Yuan Lee</div>
+              <div class="interview-response">Thank you for having me. My creative process is really about finding the intersection between technology and human emotion. I'm fascinated by how digital tools can amplify our most intimate experiences. I often start with a feeling or memory, then explore how to translate that into something visual and interactive.</div>
+            </div>
+            
+            <div class="interview-pair">
+              <div class="interview-speaker">Interviewer</div>
+              <div class="interview-response">Your recent series explores themes of identity and belonging. What inspired you to focus on these particular themes?</div>
+            </div>
+            
+            <div class="interview-pair">
+              <div class="interview-speaker">Yuan Lee</div>
+              <div class="interview-response">Growing up between cultures, I've always felt like I was navigating multiple worlds simultaneously. There's this constant negotiation of identity that happens when you don't quite fit into any single category. I wanted to create work that speaks to that experience, but also celebrates the richness that comes from existing in those in-between spaces.</div>
+            </div>
+            
+            <div class="interview-pair">
+              <div class="interview-speaker">Interviewer</div>
+              <div class="interview-response">What's next for you? Are there any new projects or directions you're excited to explore?</div>
+            </div>
+            
+            <div class="interview-pair">
+              <div class="interview-speaker">Yuan Lee</div>
+              <div class="interview-response">I'm working on a collaborative project that combines virtual reality with traditional storytelling techniques. I'm really interested in how immersive technology can create deeper empathy and understanding between people. The goal is to create experiences that help us see the world through different perspectives, literally and figuratively.</div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -125,16 +128,6 @@
           </div>
         </a>
       </nav>
-    </aside>
-
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
     </aside>
   </div>
 

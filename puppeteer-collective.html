@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Superstars Only</title>
+  <title>Puppeteer collective - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="grid-root">
+  <div id="app" class="grid-root interview-layout">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -31,43 +31,34 @@
 
     <!-- Main-body column (3/6) -->
     <main class="main-col" id="mainBody">
-      <!-- Shop -->
-      <section id="shop" class="content-block">
-        <div class="shop-area" id="shopArea">
-          <!-- images will be created by JS -->
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-block">
-        <div class="about-area">
-          <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
-          </p>
-        </div>
-      </section>
-
-      <!-- Stockists -->
-      <section id="stockists" class="content-block">
-        <div class="stockists-area" id="stockistsArea">
-          <!-- boxes created by JS -->
-        </div>
-      </section>
-
-      <!-- Interviews -->
-      <section id="interviews" class="content-block">
-        <div class="interviews-area" id="interviewsArea">
-          <!-- falling names created by JS -->
+      <!-- Interview Content -->
+      <section id="interview" class="content-block">
+        <div class="interview-area">
+          <h2>Interview with Puppeteer collective</h2>
+          <div class="interview-content">
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Puppeteer Collective, your work often explores themes of control and agency through digital puppetry. What draws you to this particular medium?</div>
+            
+            <div class="interview-speaker">Puppeteer Collective</div>
+            <div class="interview-response">Puppetry is such a powerful metaphor for the human condition. We're all puppets in some way—controlled by our desires, our fears, our circumstances. But we're also puppeteers, pulling the strings of our own lives and the lives of others. Digital puppetry just gives us new tools to explore that dynamic.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your recent performance involved audience members controlling digital puppets in real-time. What was that experience like?</div>
+            
+            <div class="interview-speaker">Puppeteer Collective</div>
+            <div class="interview-response">It was fascinating to watch people discover their own power and responsibility. When you give someone control over a digital puppet, they have to make choices about how to move it, what to make it do. Some people were gentle and careful, others were aggressive and chaotic. It revealed a lot about human nature.</div>
+            
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">What role do you see technology playing in the future of performance art?</div>
+            
+            <div class="interview-speaker">Puppeteer Collective</div>
+            <div class="interview-response">Technology is giving us new ways to tell stories, new ways to create characters, new ways to connect with audiences. But the fundamental questions remain the same: What does it mean to be human? What does it mean to have agency? What does it mean to be in control? Technology just gives us new tools to explore those timeless questions.</div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Read More column (1/6) - desktop only -->
+    <!-- Read More column (2/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
       <h2>Read More</h2>
       <nav class="read-more-links">
@@ -127,15 +118,6 @@
       </nav>
     </aside>
 
-    <!-- Video feed (1/6) - desktop only -->
-    <aside class="video-col" id="videoCol">
-      <iframe
-        src="https://iamfull.superstarsonlymag.com/"
-        title="Superstars Only feed"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </aside>
   </div>
 
   <script src="script.js"></script>
