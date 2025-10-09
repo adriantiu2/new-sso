@@ -83,7 +83,7 @@ catButtons.forEach(btn => {
                   } else if (target === "interviews") {
                     // Check if other sections are active - if so, use longer delay
                     const otherActiveSections = document.querySelectorAll('.content-block:not(.hidden)');
-                    const delay = otherActiveSections.length > 1 ? 200 : 100;
+                    const delay = otherActiveSections.length > 1 ? 300 : 200; // Increased delays
                     
                     setTimeout(() => {
                       // Clear existing interview elements
@@ -258,24 +258,39 @@ let stockistsShuffleInterval = 2000; // ms baseline (modified by speed)
 const interviewsArea = document.getElementById("interviewsArea");
 const interviewEls = [];
 function initInterviews() {
-  // Ensure area has dimensions before positioning
-  // Use getBoundingClientRect for more reliable dimensions
-  const rect = interviewsArea.getBoundingClientRect();
-  let areaW = Math.max(rect.width || interviewsArea.clientWidth, 300);
-  const areaH = Math.max(rect.height || interviewsArea.clientHeight, 200);
+  // Force a more reliable width calculation
+  let areaW = 0;
+  let areaH = 0;
   
-  // If we're getting small dimensions, estimate based on window width
-  // The main column should be about 3/6 of the total width
+  // Try multiple methods to get dimensions
+  const rect = interviewsArea.getBoundingClientRect();
+  const clientW = interviewsArea.clientWidth;
+  const clientH = interviewsArea.clientHeight;
+  
+  // Use the largest available width
+  areaW = Math.max(rect.width, clientW, 0);
+  areaH = Math.max(rect.height, clientH, 200);
+  
+  // If we still don't have a good width, force a calculation
   if (areaW < 400) {
-    const estimatedMainColWidth = window.innerWidth * 0.5; // 3/6 of total width
-    areaW = Math.max(estimatedMainColWidth - 40, 400); // subtract padding
+    const isMobile = window.innerWidth <= 800;
+    if (isMobile) {
+      areaW = window.innerWidth - 40; // Full width minus padding
+    } else {
+      // Desktop: main column is 3/6 of total width
+      areaW = (window.innerWidth * 0.5) - 40;
+    }
+    console.log('Forced width calculation:', { isMobile, windowWidth: window.innerWidth, calculatedWidth: areaW });
   }
   
   // Additional check: if other sections are active, force a larger width
   const activeSections = document.querySelectorAll('.content-block:not(.hidden)');
   if (activeSections.length > 1 && areaW < 600) {
-    areaW = Math.max(window.innerWidth * 0.4, 600); // Force larger width when multiple sections active
+    areaW = Math.max(window.innerWidth * 0.4, 600);
   }
+  
+  // Final safety check - ensure we never have a width that's too small
+  areaW = Math.max(areaW, 500);
   
   // Debug: log dimensions to see what we're getting
   console.log('Interview area dimensions:', { 
@@ -301,9 +316,16 @@ function initInterviews() {
     interviewsArea.appendChild(a);
     
     // random x across full width, random start y (above top with more variation)
-    const x = Math.random() * Math.max(1, areaW - 40);
+    // Ensure x is well distributed across the available width
+    const availableWidth = Math.max(areaW - 40, 400); // Leave minimal margin, ensure good width
+    const x = Math.random() * availableWidth;
     const y = -Math.random() * areaH * 2; // Start from further above with more variation
     const speed = 30 + Math.random()*80; // px/sec baseline
+    
+    // Debug log for first few elements to see positioning
+    if (i < 3) {
+      console.log(`Interview ${i}: x=${x}, availableWidth=${availableWidth}, areaW=${areaW}`);
+    }
     
     // set position immediately
     a.style.left = `${x}px`;
@@ -478,6 +500,15 @@ function init() {
   
   // Initialize stockists immediately - they'll be repositioned when shown
   initStockists();
+  
+  // Make shop button active by default
+  const shopBtn = document.getElementById("btn-shop");
+  const shopBlock = contentBlocks.shop;
+  if (shopBtn && shopBlock) {
+    shopBtn.classList.add("active");
+    shopBlock.classList.remove("hidden");
+    shopBlock.setAttribute("aria-hidden", "false");
+  }
   
   // start animation
   lastTs = null;

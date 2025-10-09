@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kevin rezvani - Superstars Only</title>
+  <title>Princess superstar - Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -34,70 +34,25 @@
       <!-- Interview Content -->
       <section id="interview" class="content-block">
         <div class="interview-area">
-          <h2>Interview with Kevin rezvani</h2>
+          <h2>Interview with Princess superstar</h2>
           <div class="interview-content">
-            <div class="interview-pair">
-
-              <div class="interview-speaker">Interviewer</div>
-
-              <div class="interview-response">Kevin, your work often explores themes of memory and nostalgia through digital media. What draws you to these temporal concepts?</div>
-
-            </div>
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Princess Superstar, you've been a pioneer in digital performance art. How do you see the relationship between online and offline identity?</div>
             
-            <div class="interview-pair">
-
+            <div class="interview-speaker">Princess Superstar</div>
+            <div class="interview-response">The line between online and offline is completely artificial at this point. We're all cyborgs now, whether we realize it or not. My work is about embracing that hybridity, about being fully human and fully digital simultaneously.</div>
             
-              <div class="interview-speaker">Kevin Rezvani</div>
-
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">Your performances often involve real-time audience interaction through digital platforms. What draws you to this collaborative approach?</div>
             
-              <div class="interview-response">Memory is such a strange thing—it's both incredibly personal and completely unreliable. I'm fascinated by how we construct our pasts, how we edit and curate our memories, and how digital technology is changing the way we remember and forget.</div>
-
+            <div class="interview-speaker">Princess Superstar</div>
+            <div class="interview-response">Art isn't something that happens to you—it's something you participate in. I want to break down the barrier between performer and audience, creator and consumer. When people become part of the art, it becomes something we're all making together.</div>
             
-            </div>
+            <div class="interview-speaker">Interviewer</div>
+            <div class="interview-response">What's the future of performance art in an increasingly digital world?</div>
             
-            <div class="interview-pair">
-
-            
-              <div class="interview-speaker">Interviewer</div>
-
-            
-              <div class="interview-response">Your recent project used AI to generate "false memories" based on user input. What was the thinking behind this approach?</div>
-
-            
-            </div>
-            
-            <div class="interview-pair">
-
-            
-              <div class="interview-speaker">Kevin Rezvani</div>
-
-            
-              <div class="interview-response">I wanted to explore how easily our memories can be manipulated, how vulnerable we are to suggestion and reconstruction. The AI wasn't creating lies—it was creating possibilities, alternative versions of events that could have happened. It's about the fluidity of truth and the power of narrative.</div>
-
-            
-            </div>
-            
-            <div class="interview-pair">
-
-            
-              <div class="interview-speaker">Interviewer</div>
-
-            
-              <div class="interview-response">How do you see technology changing our relationship with the past?</div>
-
-            
-            </div>
-            
-            <div class="interview-pair">
-
-            
-              <div class="interview-speaker">Kevin Rezvani</div>
-
-            
-              <div class="interview-response">We're living in an age of infinite documentation, where every moment can be captured and preserved. But that doesn't mean we understand it any better. Sometimes I think we're drowning in data but starving for meaning. My work is about finding poetry in that paradox.</div>
-
-            
-            </div>
+            <div class="interview-speaker">Princess Superstar</div>
+            <div class="interview-response">The future is already here. We're living in a world where the most intimate moments are shared publicly, where identity is fluid and performative, where reality and simulation are indistinguishable. Performance art isn't just adapting to this world—it's helping us understand it.</div>
           </div>
         </div>
       </section>
