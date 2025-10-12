@@ -10,10 +10,10 @@
 
 /* --- Config --- */
 const shopImageUrls = [
-  "https://picsum.photos/200/310?random=1",
-  "https://picsum.photos/200/310?random=2",
-  "https://picsum.photos/200/310?random=3",
-  "https://picsum.photos/200/310?random=4"
+  "assets/shop/sso2cover.png",
+  "assets/shop/sso3cover.png",
+  "assets/shop/sso4cover.png",
+  "assets/shop/sso5cover.png"
 ];
 const numStockists = 12;
 const interviewsList = [
@@ -33,7 +33,8 @@ const interviewsList = [
   "Lexi Langil",
   "Garret Sander",
   "Puppeteer collective",
-  "Moh motion"
+  "Moh motion",
+  "Caveh Zahedi"
 ];
 
 /* --- Global state --- */

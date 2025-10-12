@@ -46,7 +46,7 @@ html, body {
 .main-col {
   border: 1px solid #000;
   padding: 6px 10px 10px 10px; /* slightly closer to top */
-  overflow: hidden;
+  overflow-y: auto; /* Allow vertical scrolling */
   position: relative;
 }
 
@@ -146,6 +146,7 @@ html, body {
   letter-spacing: 0.02em;
   width: 100%;
   text-transform: uppercase;
+  line-height: 1em;
 }
 
 /* Control panel styling */
@@ -242,6 +243,7 @@ html, body {
   height: 100%;
   object-fit: cover;
   border: 2px solid hotpink; /* thin pink stroke */
+  background: white; /* white background */
   cursor: pointer;
 }
 
@@ -331,7 +333,7 @@ html, body {
 
 .interview-content {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.4;
   max-width: none;
   margin: 0;
   display: block;
@@ -339,7 +341,6 @@ html, body {
 
 .interview-content p {
   margin-bottom: 16px;
-  text-align: justify;
 }
 
 .interview-pair {
@@ -388,10 +389,40 @@ html, body {
     width: 100%;
   }
 }
+
+/* Interview intro styling - single column, larger font */
+.interview-intro {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.interview-intro p {
+  font-size: 1em; /* Same size as interview body text */
+  line-height: 1.4;
+  margin: 0;
+  max-width: none; /* Allow full width */
+}
+
+/* Interview narrative sections - single column with smaller max width */
+.interview-narrative {
+  margin: 20px auto;
+  padding: 15px 20px;
+  font-style: italic;
+  max-width: 60%;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+.interview-narrative p {
+  font-size: 1em;
+  line-height: 1.4;
+  margin: 0;
+}
 .main-col {
   border: 1px solid #000;
   padding: 10px;
-  overflow: hidden;
+  overflow-y: auto; /* Allow vertical scrolling */
   position: relative;
   min-height: 80vh; /* ✅ ensures visible height even with empty sections */
 }
