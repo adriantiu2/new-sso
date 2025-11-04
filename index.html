@@ -5,12 +5,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Superstars Only</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="app" class="grid-root">
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title">Superstars Only</h1>
+      <div class="menu-top">
+        <h1 class="site-title">Superstars Only</h1>
+
+        <!-- Category buttons -->
+        <nav class="category-panel" aria-label="Main categories">
+          <button class="cat-btn" data-target="shop" id="btn-shop">Shop</button>
+          <button class="cat-btn" data-target="about" id="btn-about">About</button>
+          <button class="cat-btn" data-target="stockists" id="btn-stockists">Stockists</button>
+          <button class="cat-btn" data-target="interviews" id="btn-interviews">Interviews</button>
+        </nav>
+      </div>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -19,14 +32,6 @@
         <button id="fastBtn" class="ctrl-btn" title="Fast forward">⏭</button>
         <div id="speedDisplay" class="speed-display">1×</div>
       </div>
-
-      <!-- Category buttons -->
-      <nav class="category-panel" aria-label="Main categories">
-        <button class="cat-btn" data-target="shop" id="btn-shop">Shop</button>
-        <button class="cat-btn" data-target="about" id="btn-about">About</button>
-        <button class="cat-btn" data-target="stockists" id="btn-stockists">Stockists</button>
-        <button class="cat-btn" data-target="interviews" id="btn-interviews">Interviews</button>
-      </nav>
     </aside>
 
     <!-- Main-body column (3/6) -->
@@ -42,12 +47,25 @@
       <section id="about" class="content-block">
         <div class="about-area">
           <p id="aboutText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vulputate, nisl non fermentum aliquet, risus lectus commodo neque,
-            vitae tristique lectus mauris ut ligula. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia curae;
-            Sed euismod, augue sed tincidunt bibendum, nulla arcu faucibus
-            risus, nec varius lorem lacus ac nunc.
+            ✩✩✩
+
+            Superstars Only is an independently published art magazine based in New York.
+
+            We critique and showcase the art world through the lenses of the everyday superstar, blurring the lines between insider and outsider perspectives.
+
+            ✩✩✩
+
+            Founded in 2021
+
+            <br>
+            <br>
+
+            instagram: @superstarsonlymag
+
+            <br>
+            <br>
+
+            email: superstarsonlymag@gmail.com
           </p>
         </div>
       </section>
@@ -69,13 +87,12 @@
 
     <!-- Read More column (1/6) - desktop only -->
     <aside class="read-more-col" id="readMoreCol">
-      <h2>Read More</h2>
       <nav class="read-more-links">
         <a href="yuan-lee.html" class="read-more-link">
           <div class="read-more-content">
             <div class="read-more-text">Interview with Yuan Lee</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=1" alt="Yuan Lee interview">
+              <img src="assets/yuan-lee/P1091695 (1).jpg" alt="Yuan Lee interview">
             </div>
           </div>
         </a>
@@ -84,7 +101,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Alex auder</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=2" alt="Alex auder interview">
+              <img src="assets/alex-auder/000095100004.jpg" alt="Alex auder interview">
             </div>
           </div>
         </a>
@@ -93,7 +110,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Molly soda</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=3" alt="Molly soda interview">
+              <img src="assets/molly-soda/IMG_0815.jpg" alt="Molly soda interview">
             </div>
           </div>
         </a>
@@ -102,7 +119,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Princess Demeny</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=4" alt="Princess Demeny interview">
+              <img src="assets/princess-demeny/catsb.jpg" alt="Princess Demeny interview">
             </div>
           </div>
         </a>
@@ -111,7 +128,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Princess superstar</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=5" alt="Princess superstar interview">
+              <img src="assets/princess-superstar/IMG_0223.jpg" alt="Princess superstar interview">
             </div>
           </div>
         </a>
@@ -129,7 +146,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Neghasi armada</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=7" alt="Neghasi armada interview">
+              <img src="assets/negashi-armada/1_NegashiArmada_bahnandrodmer (1).jpg" alt="Neghasi armada interview">
             </div>
           </div>
         </a>
@@ -138,7 +155,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Kevin rezvani</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=8" alt="Kevin rezvani interview">
+              <img src="assets/kevin-rezvani/7thstlayout.png" alt="Kevin rezvani interview">
             </div>
           </div>
         </a>
@@ -147,7 +164,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Melanie Wu</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=9" alt="Melanie Wu interview">
+              <img src="assets/melanie-wu/Artboard 4.png" alt="Melanie Wu interview">
             </div>
           </div>
         </a>
@@ -156,7 +173,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Ingrid Lu</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=10" alt="Ingrid Lu interview">
+              <img src="assets/ingrid-lu/Artboard 1.png" alt="Ingrid Lu interview">
             </div>
           </div>
         </a>
@@ -165,7 +182,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Lizzi Bougatsos</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=11" alt="Lizzi Bougatsos interview">
+              <img src="assets/lizzi-bougatsos/IMG_4209.jpg" alt="Lizzi Bougatsos interview">
             </div>
           </div>
         </a>
@@ -183,7 +200,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Liana Satenstein</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=13" alt="Liana Satenstein interview">
+              <img src="assets/liana-satenstein/Screen Shot 2023-04-15 at 12.23.09 PM.jpg" alt="Liana Satenstein interview">
             </div>
           </div>
         </a>
@@ -201,7 +218,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Garret Sander</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=15" alt="Garret Sander interview">
+              <img src="assets/garrett-sander/frankie.jpg" alt="Garret Sander interview">
             </div>
           </div>
         </a>
@@ -210,7 +227,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Puppeteer collective</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=16" alt="Puppeteer collective interview">
+              <img src="assets/puppet/puppet.png" alt="Puppeteer collective interview">
             </div>
           </div>
         </a>
@@ -219,7 +236,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Moh motion</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=17" alt="Moh motion interview">
+              <img src="assets/moh-motion/IMG_0972.jpg" alt="Moh motion interview">
             </div>
           </div>
         </a>
@@ -228,7 +245,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Caveh Zahedi</div>
             <div class="read-more-thumbnail">
-              <img src="https://picsum.photos/60/40?random=18" alt="Caveh Zahedi interview">
+              <img src="assets/caveh-zahedi/Artboard 1.png" alt="Caveh Zahedi interview">
             </div>
           </div>
         </a>

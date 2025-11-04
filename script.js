@@ -145,55 +145,67 @@ function initShop() {
     // random position inside area (use client size for accurate inner bounds)
     const areaW = shopArea.clientWidth;
     const areaH = shopArea.clientHeight;
-    const w = 90, h = 140;
+    const w = 135;
     const x = Math.random() * Math.max(1, areaW - w);
-    const y = Math.random() * Math.max(1, areaH - h);
+    const y = Math.random() * Math.max(1, areaH - 200); // Use max expected height for collision detection
     const speed = 80 + Math.random()*120; // px/sec baseline
     const angle = Math.random()*Math.PI*2;
-    shopItems.push({ el: a, img, x, y, vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed, w, h });
+    shopItems.push({ el: a, img, x, y, vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed, w, h: 200 }); // Store max height for collision
     // initialize style: lock left/top to 0 so transform is the sole position source
     a.style.left = `0px`;
     a.style.top = `0px`;
     a.style.width = `${w}px`;
-    a.style.height = `${h}px`;
+    a.style.height = `auto`;
     // set initial transform to match starting position
     a.style.transform = `translate(${x}px, ${y}px)`;
   });
 }
 
-/* --- ABOUT: hue rotation and word spinning --- */
+/* --- ABOUT: diagonal wave color effect --- */
 const aboutText = document.getElementById("aboutText");
-let aboutHue = 0;
-const aboutWords = []; // {el, rotation, speed}
-let currentSpinningWord = 0;
-let wordSwitchTimer = 0;
-const wordSwitchInterval = 1.5; // seconds between word switches
+const aboutWords = []; // {el, colorIndex}
+const waveColors = [
+  'rgb(255, 0, 0)',     // Red
+  'rgb(0, 0, 255)',     // Blue
+  'rgb(0, 255, 0)',     // Green
+  '#FF00FB'             // Pink
+];
+let waveOffset = 0;
+const waveSpeed = 2; // words per second
 
 function initAbout() {
   if (!aboutText) return;
   
-  // Get the text content and split into words
-  const text = aboutText.textContent;
-  const words = text.split(/\s+/);
+  // Get the innerHTML to preserve line breaks
+  const html = aboutText.innerHTML;
   
-  // Clear the paragraph and rebuild with spinning words
+  // Clear the paragraph and rebuild with color wave words
   aboutText.innerHTML = '';
   
-  words.forEach((word, index) => {
-    const span = document.createElement('span');
-    span.textContent = word;
-    span.className = 'about-word';
-    span.style.display = 'inline-block';
-    span.style.transformOrigin = 'center';
-    aboutText.appendChild(span);
-    
-    // Add a space after each word (except the last one)
-    if (index < words.length - 1) {
-      aboutText.appendChild(document.createTextNode(' '));
+  // Split by spaces but preserve line breaks
+  const parts = html.split(/(\s+|<br\s*\/?>)/);
+  let wordIndex = 0;
+  
+  parts.forEach((part, index) => {
+    if (part.trim() === '' || part.match(/^\s+$/)) {
+      // Preserve whitespace
+      aboutText.appendChild(document.createTextNode(part));
+    } else if (part.match(/^<br\s*\/?>$/i)) {
+      // Preserve line breaks
+      aboutText.appendChild(document.createElement('br'));
+    } else {
+      // Create colored word span
+      const span = document.createElement('span');
+      span.textContent = part;
+      span.className = 'about-word';
+      span.style.display = 'inline-block';
+      span.style.transition = 'color 0.3s ease';
+      aboutText.appendChild(span);
+      
+      // Each word gets a color index based on its position
+      aboutWords.push({ el: span, colorIndex: wordIndex % waveColors.length });
+      wordIndex++;
     }
-    
-    // All words start with no rotation, only one will spin at a time
-    aboutWords.push({ el: span, rotation: 0, speed: 0 });
   });
 }
 
@@ -345,6 +357,9 @@ window.addEventListener("resize", () => {
     // Reinitialize with new spacing
     initStockists();
   }
+  
+  // Resize title to fit new column width
+  resizeTitle();
 });
 
 /* --- Animation loop --- */
@@ -401,42 +416,17 @@ function updateShop(deltaSeconds) {
 function updateAbout(deltaSeconds) {
   if (!aboutText) return;
   
-  // hue shift speed baseline: 30 degrees per second
-  aboutHue += 30 * deltaSeconds;
-  aboutHue = aboutHue % 360;
-  // apply CSS filter hue-rotate
-  aboutText.style.filter = `hue-rotate(${aboutHue}deg)`;
+  // Update wave offset for diagonal wave effect (left to right)
+  waveOffset += waveSpeed * deltaSeconds;
   
-  // update word switching timer
-  wordSwitchTimer += deltaSeconds;
-  if (wordSwitchTimer >= wordSwitchInterval) {
-    // Switch to random word
-    wordSwitchTimer = 0;
-    const newSpinningWord = Math.floor(Math.random() * aboutWords.length);
-    currentSpinningWord = newSpinningWord;
-    
-    // Reset all words to no rotation and ensure they're at original position
-    aboutWords.forEach(word => {
-      word.rotation = 0;
-      word.speed = 0;
-      word.el.style.transform = 'rotate(0deg)';
-    });
-    
-    // Set the new random spinning word with faster speed
-    const spinningWord = aboutWords[currentSpinningWord];
-    spinningWord.speed = 360; // 360 degrees per second (1 full rotation per second)
-  }
-  
-  // update word spinning - only the current word spins
-  aboutWords.forEach(word => {
-    if (word.speed > 0) {
-      word.rotation += word.speed * deltaSeconds;
-      // Keep rotation clean by using modulo to prevent accumulation issues
-      const cleanRotation = word.rotation % 360;
-      word.el.style.transform = `rotate(${cleanRotation}deg)`;
-    } else {
-      word.el.style.transform = `rotate(0deg)`;
-    }
+  // Apply color wave to each word
+  aboutWords.forEach((word, index) => {
+    // Calculate the color index for this word based on its position and wave offset
+    // The diagonal effect is created by subtracting the word's index from the wave offset for left-to-right flow
+    const colorIndex = Math.floor((waveOffset - index) % waveColors.length);
+    // Ensure positive index for proper color cycling
+    const positiveIndex = colorIndex < 0 ? (colorIndex % waveColors.length) + waveColors.length : colorIndex;
+    word.el.style.color = waveColors[positiveIndex % waveColors.length];
   });
 }
 
@@ -485,6 +475,11 @@ function updateInterviews(deltaSeconds) {
   });
 }
 
+/* All read-more links now use consistent layout (handled by CSS) */
+function initReadMoreThumbnails() {
+  // No special handling needed - all articles use consistent layout
+}
+
 /* Initialize everything, then start RAF */
 function init() {
   // Start with all content hidden and no buttons active
@@ -501,6 +496,9 @@ function init() {
   
   // Initialize stockists immediately - they'll be repositioned when shown
   initStockists();
+  
+  // Apply full-width thumbnails to some read-more links
+  initReadMoreThumbnails();
   
   // Make shop button active by default
   const shopBtn = document.getElementById("btn-shop");

@@ -23,7 +23,7 @@ html, body {
 
 /* Interview pages: 3 columns (no video) */
 .grid-root.interview-layout {
-  grid-template-columns: 1fr 3fr 2fr; /* 1/6 : 3/6 : 2/6 proportionally */
+  grid-template-columns: 1fr 3fr 1fr 1fr; /* menu (1fr), interview (3fr), read-more (1fr), blank space (1fr) */
 }
 
 /* Remove borders from menu and read-more columns on interview pages */
@@ -34,11 +34,10 @@ html, body {
 
 /* columns */
 .menu-col {
-  border: 1px solid #000;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
   min-width: 160px;
   max-width: 320px;
 }
@@ -51,7 +50,6 @@ html, body {
 }
 
 .read-more-col {
-  border: 1px solid #000;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -85,6 +83,7 @@ html, body {
 .read-more-links {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .read-more-link {
@@ -93,15 +92,18 @@ html, body {
   text-decoration: none;
   color: #000;
   transition: background-color 0.2s ease;
+  width: 100%;
 }
 
 .read-more-link:hover {
   background: #f5f5f5;
 }
 
+
 .read-more-content {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   gap: 8px;
 }
 
@@ -109,17 +111,18 @@ html, body {
   font-family: Arial, sans-serif;
   font-size: 0.9em;
   line-height: 1.2;
-  flex: 1;
+  text-align: center;
+  order: 1;
 }
 
 .read-more-thumbnail {
-  flex-shrink: 0;
-  order: -1; /* Move thumbnail to left */
+  width: 100%;
+  order: 0;
 }
 
 .read-more-thumbnail img {
-  width: 80px;
-  height: 50px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border: 1px solid #ddd;
 }
@@ -142,11 +145,19 @@ html, body {
 .site-title {
   font-family: "Arial Black", "Arial Black", Gadget, sans-serif;
   text-align: left;
-  font-size: 1.3em;
   letter-spacing: 0.02em;
   width: 100%;
   text-transform: uppercase;
   line-height: 1em;
+  white-space: nowrap;
+  font-size: 1.4em;
+}
+
+/* Menu top section */
+.menu-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* Control panel styling */
@@ -157,6 +168,7 @@ html, body {
   padding: 6px;
   border: 1px solid #000;
   width: 100%;
+  margin-top: auto;
 }
 
 .ctrl-btn {
@@ -240,8 +252,8 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border: 2px solid hotpink; /* thin pink stroke */
   background: white; /* white background */
   cursor: pointer;
@@ -266,8 +278,7 @@ html, body {
 
 .about-word {
   display: inline-block;
-  transform-origin: center;
-  transition: transform 0.1s linear;
+  transition: color 0.3s ease;
 }
 
 /* Stockists layout: boxes */
@@ -418,6 +429,30 @@ html, body {
   font-size: 1em;
   line-height: 1.4;
   margin: 0;
+}
+
+/* Interview images */
+.interview-image {
+  margin: 20px auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.interview-image img {
+  max-width: 100%;
+  max-height: 70vh;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mobile styles for interview narrative */
+@media (max-width: 768px) {
+  .interview-narrative {
+    max-width: 100%;
+    margin: 20px 0;
+    padding: 15px 10px;
+  }
 }
 .main-col {
   border: 1px solid #000;
