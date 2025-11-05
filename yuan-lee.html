@@ -8,9 +8,14 @@
 </head>
 <body>
   <div id="app" class="grid-root interview-layout">
+    <!-- Header row with title and toggle button -->
+    <div class="interview-header">
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
+      <button class="read-more-toggle" id="readMoreToggle" aria-label="Toggle Read More section">Read More</button>
+    </div>
+    
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
-      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
 
       <!-- Control panel -->
       <div class="control-panel" role="group" aria-label="Playback controls">
@@ -79,8 +84,31 @@
               <div class="interview-response">And now this is about my work. So on this website, I have two parts. Should we turn on the light? Okay, so one part is illustration. So this is a nature illustration for a high end science textbook. This is an American wetland.</div>
             </div>
             
-            <div class="interview-image">
-              <img src="assets/yuan-lee/g5.jpg" alt="">
+            <div class="image-carousel" id="yuanCarousel3">
+              <div class="carousel-container">
+                <button class="carousel-button prev" aria-label="Previous image">←</button>
+                <div class="carousel-slides">
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/g5.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/f4.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/f17.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/h1.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/o1.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/a10.jpg" alt="">
+                  </div>
+                </div>
+                <button class="carousel-button next" aria-label="Next image">→</button>
+              </div>
             </div>
             
             <div class="interview-narrative">
@@ -131,8 +159,28 @@
               <div class="interview-response">When did you start selling the originals?</div>
             </div>
             
-            <div class="interview-image">
-              <img src="assets/yuan-lee/h18Andean deer.jpg" alt="">
+            <div class="image-carousel" id="yuanCarousel">
+              <div class="carousel-container">
+                <button class="carousel-button prev" aria-label="Previous image">←</button>
+                <div class="carousel-slides">
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/h18Andean deer.jpg" alt="Andean deer">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/h19American bear.jpg" alt="American bear">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/h21cherry crown macaque.jpg" alt="Cherry crown macaque">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/h26Yak.jpg" alt="Yak">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/h27Lion tail macaque.jpg" alt="Lion tail macaque">
+                  </div>
+                </div>
+                <button class="carousel-button next" aria-label="Next image">→</button>
+              </div>
             </div>
             
             <div class="interview-pair">
@@ -155,10 +203,6 @@
               <div class="interview-response">Top secret?</div>
             </div>
             
-            <div class="interview-image">
-              <img src="assets/yuan-lee/h19American bear.jpg" alt="">
-            </div>
-            
             <div class="interview-pair">
               <div class="interview-speaker">Yuan</div>
               <div class="interview-response">Of course. That's between me and the dealer and client. Because this is not bought in the galleries. They are private dealers. I cannot do this. Otherwise I could screw up a lot of people, not just me. [Yuan gestures to the next painting] Okay, so this is another one. This one I was invited to do as a part of a group show in the Taiwanese National Museum. It's for an environmental thing: a fundraiser. So I did this and then I donated the rights for them to duplicate it for stamps and other things.</div>
@@ -172,10 +216,6 @@
             <div class="interview-pair">
               <div class="interview-speaker">Yuan</div>
               <div class="interview-response">No, these are all Taiwanese endangered species. By the way, this one [He points at the bear painting] they officially announced that it's extinct in Taiwan. I did this painting with some references and also a model from the natural museum there.</div>
-            </div>
-            
-            <div class="interview-image">
-              <img src="assets/yuan-lee/h21cherry crown macaque.jpg" alt="">
             </div>
             
             <div class="interview-pair">
@@ -202,10 +242,6 @@
               <div class="interview-response">I used to advertise in things like the Black Book. It's like $5,000 a page, you know.</div>
             </div>
             
-            <div class="interview-image">
-              <img src="assets/yuan-lee/h26Yak.jpg" alt="">
-            </div>
-            
             <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
               <div class="interview-response">When did you sign to your agency?</div>
@@ -224,10 +260,6 @@
             <div class="interview-pair">
               <div class="interview-speaker">Yuan</div>
               <div class="interview-response">Yeah. And he's on every cover. That's the way they do business at the time and I just didn't like it. But I did a few. And then one time, I needed to go to Paris and I walked out the Louvre and I saw a book with a cover that I did on a bookstand and I was going to die. Then when I got back I quit and became independent for a few years.</div>
-            </div>
-            
-            <div class="interview-image">
-              <img src="assets/yuan-lee/h27Lion tail macaque.jpg" alt="">
             </div>
             
             <div class="interview-pair">
@@ -300,6 +332,30 @@
             <div class="interview-pair">
               <div class="interview-speaker">Yuan</div>
               <div class="interview-response">I didn't even ask. I said, "I don't think they will kill me." So I went to the meeting, and I liked the designer working on the project with me. The first meeting they had me sit there and do live drawings in front of them. That's how tough it was. Nabisco animal crackers has a joint venture with Barnum and Circus, the number one circus in the US. That's why the animal crackers were using the circus cage imagery. The problem was that in 1997 many kids, along with their parents, went to the circus to protest animal abuse, right? But Nabisco had this long contract with the circus that they could not abandon. So I was in the meetings, and we talked about how to deal with it. And I said, "The circus is good parenting. The parents took their children there to have fun. So let's just focus on that." That's how I came up with animal parenting. So I did some drawings for them. They told me that they want to talk about endangered species and promote the protection of animals. So that's why the panels have the animals in the wilderness. The difficult part was the top banner. In the beginning, we tried baby animals with parent animals again but it was very messy because it's such a small format. So instead I said, "Let's do an example of successful parenting, which is teenagers", and they agreed. Many months went into executing it all. After that Jeff Lavaty called me and said, "Yuan, I think it's about time for me to pay you a visit." We signed a contract immediately after he saw all my work. I even negotiated so that if I got clients myself, I wouldn't have to split it with him and he accepted.</div>
+            </div>
+            
+            <div class="image-carousel" id="yuanCarousel2">
+              <div class="carousel-container">
+                <button class="carousel-button prev" aria-label="Previous image">←</button>
+                <div class="carousel-slides">
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/b4.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/b5.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/b6.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/b7.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/yuan-lee/b9.jpg" alt="">
+                  </div>
+                </div>
+                <button class="carousel-button next" aria-label="Next image">→</button>
+              </div>
             </div>
             
             <div class="interview-pair">
@@ -417,7 +473,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Neghasi armada</div>
             <div class="read-more-thumbnail">
-              <img src="assets/negashi-armada/1_NegashiArmada_bahnandrodmer (1).jpg" alt="Neghasi armada interview">
+              <img src="assets/negashi-armada/ss1.jpg" alt="Neghasi armada interview">
             </div>
           </div>
         </a>
@@ -498,7 +554,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Puppeteer collective</div>
             <div class="read-more-thumbnail">
-              <img src="assets/puppet/puppet.png" alt="Puppeteer collective interview">
+              <img src="assets/puppet/IMG_4708.jpg" alt="Puppeteer collective interview">
             </div>
           </div>
         </a>
@@ -526,5 +582,111 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // Carousel functionality for Yuan Lee interview
+    // Function to initialize any carousel
+    function initCarousel(carouselId) {
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
+      
+      const container = carousel.querySelector('.carousel-container');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const prevBtn = carousel.querySelector('.carousel-button.prev');
+      const nextBtn = carousel.querySelector('.carousel-button.next');
+      const slidesContainer = carousel.querySelector('.carousel-slides');
+      
+      let currentIndex = 0;
+      
+      function updateCarousel() {
+        const containerWidth = container.offsetWidth;
+        const translateX = -currentIndex * containerWidth;
+        slidesContainer.style.transform = `translateX(${translateX}px)`;
+        
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === slides.length - 1;
+      }
+      
+      // Ensure slides are properly sized on initialization and resize
+      function initializeCarousel() {
+        const containerWidth = container.offsetWidth;
+        slides.forEach(slide => {
+          slide.style.width = containerWidth + 'px';
+          slide.style.minWidth = containerWidth + 'px';
+          slide.style.maxWidth = containerWidth + 'px';
+        });
+        slidesContainer.style.width = (containerWidth * slides.length) + 'px';
+        updateCarousel();
+      }
+      
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < slides.length - 1) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+      
+      // Initialize on load and resize
+      function init() {
+        initializeCarousel();
+      }
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+      
+      window.addEventListener('resize', initializeCarousel);
+    }
+    
+    // Initialize all carousels
+    initCarousel('yuanCarousel');
+    initCarousel('yuanCarousel2');
+    initCarousel('yuanCarousel3');
+    
+    // Read More toggle functionality
+    const readMoreToggle = document.getElementById('readMoreToggle');
+    const readMoreCol = document.getElementById('readMoreCol');
+    
+    if (readMoreToggle && readMoreCol) {
+      // Initialize: show by default on desktop, hide on mobile
+      if (window.innerWidth > 800) {
+        readMoreCol.classList.remove('hidden');
+        readMoreToggle.textContent = 'Hide More';
+      } else {
+        readMoreCol.classList.add('hidden');
+        readMoreToggle.textContent = 'Read More';
+      }
+      
+      readMoreToggle.addEventListener('click', () => {
+        readMoreCol.classList.toggle('hidden');
+        readMoreToggle.textContent = readMoreCol.classList.contains('hidden') ? 'Read More' : 'Hide More';
+      });
+      
+      // Update on window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 800) {
+          // Desktop: show by default (remove hidden class)
+          if (readMoreCol.classList.contains('hidden')) {
+            readMoreCol.classList.remove('hidden');
+            readMoreToggle.textContent = 'Hide More';
+          }
+        } else {
+          // Mobile: respect toggle state
+          if (readMoreCol.classList.contains('hidden')) {
+            readMoreToggle.textContent = 'Read More';
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>

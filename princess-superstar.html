@@ -8,6 +8,13 @@
 </head>
 <body>
   <div id="app" class="grid-root interview-layout">
+    <!-- Header row with title and toggle button -->
+    <div class="interview-header">
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
+      <button class="read-more-toggle" id="readMoreToggle" aria-label="Toggle Read More section">Read More</button>
+    </div>
+    
+
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
       <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
@@ -480,7 +487,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Neghasi armada</div>
             <div class="read-more-thumbnail">
-              <img src="assets/negashi-armada/1_NegashiArmada_bahnandrodmer (1).jpg" alt="Neghasi armada interview">
+              <img src="assets/negashi-armada/ss1.jpg" alt="Neghasi armada interview">
             </div>
           </div>
         </a>
@@ -561,7 +568,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Puppeteer collective</div>
             <div class="read-more-thumbnail">
-              <img src="assets/puppet/puppet.png" alt="Puppeteer collective interview">
+              <img src="assets/puppet/IMG_4708.jpg" alt="Puppeteer collective interview">
             </div>
           </div>
         </a>
@@ -590,4 +597,42 @@
 
   <script src="script.js"></script>
 </body>
+  <script>
+    // Read More toggle functionality
+    const readMoreToggle = document.getElementById('readMoreToggle');
+    const readMoreCol = document.getElementById('readMoreCol');
+    
+    if (readMoreToggle && readMoreCol) {
+      // Initialize: show by default on desktop, hide on mobile
+      if (window.innerWidth > 800) {
+        readMoreCol.classList.remove('hidden');
+        readMoreToggle.textContent = 'Hide More';
+      } else {
+        readMoreCol.classList.add('hidden');
+        readMoreToggle.textContent = 'Read More';
+      }
+      
+      readMoreToggle.addEventListener('click', () => {
+        readMoreCol.classList.toggle('hidden');
+        readMoreToggle.textContent = readMoreCol.classList.contains('hidden') ? 'Read More' : 'Hide More';
+      });
+      
+      // Update on window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 800) {
+          // Desktop: show by default (remove hidden class)
+          if (readMoreCol.classList.contains('hidden')) {
+            readMoreCol.classList.remove('hidden');
+            readMoreToggle.textContent = 'Hide More';
+          }
+        } else {
+          // Mobile: respect toggle state
+          if (readMoreCol.classList.contains('hidden')) {
+            readMoreToggle.textContent = 'Read More';
+          }
+        }
+      });
+    }
+  </script>
+
 </html>

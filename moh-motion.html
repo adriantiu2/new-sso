@@ -8,6 +8,13 @@
 </head>
 <body>
   <div id="app" class="grid-root interview-layout">
+    <!-- Header row with title and toggle button -->
+    <div class="interview-header">
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
+      <button class="read-more-toggle" id="readMoreToggle" aria-label="Toggle Read More section">Read More</button>
+    </div>
+    
+
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
       <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
@@ -68,11 +75,23 @@
               
             <div class="interview-response">That's crazy to see how 'ride or die' your fan base is for you.</div>
             </div>
-            <div class="interview-image">
-              <img src="assets/moh-motion/98AF7F8B-0363-4067-B43B-04FE3FD5325A.jpg" alt="">
+            <div class="image-carousel" id="mohCarousel">
+              <div class="carousel-container">
+                <button class="carousel-button prev" aria-label="Previous image">←</button>
+                <div class="carousel-slides">
+                  <div class="carousel-slide">
+                    <img src="assets/moh-motion/98AF7F8B-0363-4067-B43B-04FE3FD5325A.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/moh-motion/IMG_0698.jpg" alt="">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets/moh-motion/IMG_1366.jpg" alt="">
+                  </div>
+                </div>
+                <button class="carousel-button next" aria-label="Next image">→</button>
+              </div>
             </div>
-
-
 
 <div class="interview-pair">
               <div class="interview-speaker">MohMotion</div>
@@ -91,7 +110,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">I mean, I think what got me into your videos was seeing how humble you were. Like, seeing all these people offering you money and you turning it down.
             </div>
             </div>
             <div class="interview-image">
@@ -117,15 +136,8 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">What was your upbringing like?</div>
             </div>
-            </div>
-            <div class="interview-image">
-              <img src="assets/moh-motion/IMG_0698.jpg" alt="">
-            </div>
-
-
-
 <div class="interview-pair">
               <div class="interview-speaker">MohMotion</div>
               <div class="interview-response">I was adopted by a wonderful family out in Ann Arbor, Michigan. They changed my perspective on a lot of things and they changed how I view life. I used to be a lot more aggressive. I used to be a lot angrier. I used to be a much worse person. Like the 'me' from before definitely would have taken all that cash that the fans offered me. Not even because my heart has changed or anything, it's just because I was in a much worse situation at that point and I had nobody. I was just used to being used. I really thought that there were no genuine people in this world, but they really showed me that genuine kindness is what's gonna help the world.</div>
@@ -143,7 +155,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">So you stopped taking challenges in your area because you completed them all?
             </div>
             </div>
 
@@ -169,7 +181,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">But you're taking anything and everything, right? Because I haven't seen you lose a single one.
             </div>
             </div>
 
@@ -177,12 +189,6 @@
               <div class="interview-speaker">MohMotion</div>
               <div class="interview-response">Damn. I don't even like social media, that's the whole thing. I only started to ship because my friend was like, "Aye bro, you be eating crazy". I'm like, that's a fact. And he's like, "Bro, there's this one French fry challenge. If you win you get $400. It's in Detroit." I said, "Bet that's right down the street!" So we slipped to this little challenge. It was seven pounds of French fries, a pound of bacon, a pound of shrimp, a pound of cheese, and a pound of ground beef. Bro, when I tell you that was the best meal I've ever had to date—I faced that and I was still hungry after. So everyone was just looking at me like I was insane. I'm thinking I just did some regular shit. So they paid me and everyone was lit. But they were like, "you should take this seriously because you know you're the first person to finish this, right? Like, the only person who did this is a professional eater and you beat his time like crazy." And so after that my friend just kept on taking me to the challenges and I kept on succeeding. That's the most I ever won off a challenge though, for sure.</div>
             </div>
-            <div class="interview-image">
-              <img src="assets/moh-motion/IMG_1366.jpg" alt="">
-            </div>
-
-
-
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
               <div class="interview-response">So your first challenge was the challenge you made the most money from? Is that what motivated you to keep doing them?</div>
@@ -195,7 +201,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">Yeah, because I would see videos on your Tik Tok of you after your shift at Pizza Hut coming home with bags and boxes of whatever leftovers they had.
             </div>
             </div>
 
@@ -221,7 +227,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">How did you learn Spanish initially?
             </div>
             </div>
 
@@ -247,7 +253,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">So is that kind of why you started making the transition to Youtube because I know you've been trying to do that?
             </div>
             </div>
 
@@ -273,13 +279,13 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">I think I saw that mentality from you the most when you were sleeping in that Walmart parking lot on your way to that food challenge. Can you walk me through that whole conundrum?
             </div>
             </div>
 
 <div class="interview-pair">
               <div class="interview-speaker">MohMotion</div>
-              <div class="interview-response">Yeah, that's sleeping in the parking lot shit—everyone was thinking I'm homeless. I'm in no way, shape, or form homeless. I'm working, I'm decent. It was just on the train ride from Phoenix to San Antonio I had gotten my wallet stolen. So that had my ID, my everything in it. So when I tried to get a motel or anything I was denied. There was nowhere for me to stay. It was just bad for me at the time. I wasn't going to bother anybody, so I decided to take my blanket, grab my bags, grab a little shopping cart, and get inside the Walmart parking lot so that I had a roof over my head for the night. And then I went to bed. I was trying to sleep but the concrete is a little bit hard. I wasn't tripping though. I was on my phone until it died. And sadly that video blew up. I didn't really want that to blow up like that, because everyone thought I was homeless and it was irritating and there's people who still think I'm homeless today.</div>
+              <div class="interview-response">Yeah, that sleeping in the parking lot shit—everyone was thinking I'm homeless. I'm in no way, shape, or form homeless. I'm working, I'm decent. It was just on the train ride from Phoenix to San Antonio I had gotten my wallet stolen. So that had my ID, my everything in it. So when I tried to get a motel or anything I was denied. There was nowhere for me to stay. It was just bad for me at the time. I wasn't going to bother anybody, so I decided to take my blanket, grab my bags, grab a little shopping cart, and get inside the Walmart parking lot so that I had a roof over my head for the night. And then I went to bed. I was trying to sleep but the concrete is a little bit hard. I wasn't tripping though. I was on my phone until it died. And sadly that video blew up. I didn't really want that to blow up like that, because everyone thought I was homeless and it was irritating and there's people who still think I'm homeless today.</div>
             </div>
 
 <div class="interview-pair">
@@ -299,7 +305,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">But you went into the three pound burrito thinking you were going to take the dub?
             </div>
             </div>
 
@@ -325,7 +331,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">Yeah! I've seen your regular meals and they'd be Eating Challenge portions.
             </div>
             </div>
 
@@ -351,7 +357,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">Who are some of your role models in terms of food eating? Or content creation?
             </div>
             </div>
 
@@ -377,7 +383,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">What's some advice you have for someone trying to come up during food challenges?
             </div>
             </div>
 
@@ -403,7 +409,7 @@
 
 <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
-              <div class="interview-response">
+              <div class="interview-response">Have you heard of mango lassi? It’s a mango smoothie with yogurt.
             </div>
             </div>
 
@@ -488,7 +494,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Neghasi armada</div>
             <div class="read-more-thumbnail">
-              <img src="assets/negashi-armada/1_NegashiArmada_bahnandrodmer (1).jpg" alt="Neghasi armada interview">
+              <img src="assets/negashi-armada/ss1.jpg" alt="Neghasi armada interview">
             </div>
           </div>
         </a>
@@ -569,7 +575,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Puppeteer collective</div>
             <div class="read-more-thumbnail">
-              <img src="assets/puppet/puppet.png" alt="Puppeteer collective interview">
+              <img src="assets/puppet/IMG_4708.jpg" alt="Puppeteer collective interview">
             </div>
           </div>
         </a>
@@ -588,5 +594,73 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // Carousel functionality for Moh Motion interview
+    // Function to initialize any carousel
+    function initCarousel(carouselId) {
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
+      
+      const container = carousel.querySelector('.carousel-container');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const prevBtn = carousel.querySelector('.carousel-button.prev');
+      const nextBtn = carousel.querySelector('.carousel-button.next');
+      const slidesContainer = carousel.querySelector('.carousel-slides');
+      
+      let currentIndex = 0;
+      
+      function updateCarousel() {
+        const containerWidth = container.offsetWidth;
+        const translateX = -currentIndex * containerWidth;
+        slidesContainer.style.transform = `translateX(${translateX}px)`;
+        
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === slides.length - 1;
+      }
+      
+      // Ensure slides are properly sized on initialization and resize
+      function initializeCarousel() {
+        const containerWidth = container.offsetWidth;
+        slides.forEach(slide => {
+          slide.style.width = containerWidth + 'px';
+          slide.style.minWidth = containerWidth + 'px';
+          slide.style.maxWidth = containerWidth + 'px';
+        });
+        slidesContainer.style.width = (containerWidth * slides.length) + 'px';
+        updateCarousel();
+      }
+      
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < slides.length - 1) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+      
+      // Initialize on load and resize
+      function init() {
+        initializeCarousel();
+      }
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+      
+      window.addEventListener('resize', initializeCarousel);
+    }
+    
+    // Initialize carousel
+    initCarousel('mohCarousel');
+  </script>
 </body>
 </html>

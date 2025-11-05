@@ -8,6 +8,13 @@
 </head>
 <body>
   <div id="app" class="grid-root interview-layout">
+    <!-- Header row with title and toggle button -->
+    <div class="interview-header">
+      <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
+      <button class="read-more-toggle" id="readMoreToggle" aria-label="Toggle Read More section">Read More</button>
+    </div>
+    
+
     <!-- Menu column (1/6) -->
     <aside class="menu-col">
       <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">Superstars Only</a></h1>
@@ -37,7 +44,7 @@
           <h2>Interview with Neghasi armada</h2>
           <div class="interview-content">
             <div class="interview-image">
-              <img src="assets/negashi-armada/1_NegashiArmada_bahnandrodmer (1).jpg" alt="">
+              <img src="assets/negashi-armada/ss1.jpg" alt="">
             </div>
             
 
@@ -125,16 +132,12 @@
             </div>
             
             <div class="interview-image">
-              <img src="assets/negashi-armada/ss1.jpg" alt="">
+              <img src="assets/negashi-armada/1_NegashiArmada_bahnandrodmer (1).jpg" alt="">
             </div>
             
             <div class="interview-pair">
               <div class="interview-speaker">Negashi</div>
               <div class="interview-response">Yeah. I mean, as far as strangers go. But honestly, a lot of it is people I've known for a while. I just know so many musicians here. It's primarily musicians who hit me up. Even for this book cover I did for this project called Black Ether that my friend Warren from the band Prison Religion did—he's just somebody I know through music slash Instagram. But primarily it's been music people like Fat Tony, Isabella Lovestory. Now I'm overthinking this a little bit. I'm like, Whoa, is this nepotism? It is nepotism a little bit, but it's like, these are people who really take their music and their artistic choices very seriously. So I don't think that they would fuck with me just because. But that book cover is probably something I'm most proud of recently in terms of the commission world. And then like this mural I did in Geneva for this arts foundation out there.</div>
-            </div>
-            
-            <div class="interview-image">
-              <img src="assets/negashi-armada/Negashi Armada Available works 2023 (1) (dragged) 3.jpg" alt="">
             </div>
             
             <div class="interview-pair">
@@ -150,6 +153,10 @@
             <div class="interview-pair">
               <div class="interview-speaker">Adrian</div>
               <div class="interview-response">Yeah, it's kind of a weird line because you have such a specific style, which is very high art. When these people commission you, what is that dynamic like between you and the client? Are they giving you an idea of compositions they want?</div>
+            </div>
+
+            <div class="interview-image">
+              <img src="assets/negashi-armada/Negashi Armada Available works 2023 (1) (dragged) 3.jpg" alt="">
             </div>
             
             <div class="interview-pair">
@@ -220,9 +227,6 @@
               <div class="interview-response">Do those ideas come to you in the medium that you want to create them in? Like when you have an idea are you simultaneously thinking that that idea is best communicated through an album versus a drawing?</div>
             </div>
             
-            <div class="interview-image">
-              <img src="assets/negashi-armada/Negashi Armada Available works 2023 (1) (dragged).jpg" alt="">
-            </div>
             
             <div class="interview-pair">
               <div class="interview-speaker">Negashi</div>
@@ -242,6 +246,10 @@
             <div class="interview-pair">
               <div class="interview-speaker">Negashi</div>
               <div class="interview-response">As far as the art stuff, I really like the way I color. I want to draw a lot better, but I really like the way I color. I'll say that much in terms of my mark making. And then with music—I like the melodies I play, I would just like the recordings to be a little cleaner. I'm working on a new record right now and I'm navigating the space between creative voice and suspending the ego to let the best thing happen. It's fun and it's fascinating, but I think I'm getting to a happy space with it. I like black metal a lot. I was reading about how, at first, they would try to use all the shitiest gear they could find to make the tapes and then eventually they figured out their exact system of how they wanted to record and it was a mixture of really nice and really bad gear from different decades. I'm really inspired by that idea as the ultimate alchemical system for an artist to work in.</div>
+            </div>
+
+            <div class="interview-image">
+              <img src="assets/negashi-armada/Negashi Armada Available works 2023 (1) (dragged).jpg" alt="">
             </div>
             
             <div class="interview-pair">
@@ -575,7 +583,7 @@
           <div class="read-more-content">
             <div class="read-more-text">Interview with Puppeteer collective</div>
             <div class="read-more-thumbnail">
-              <img src="assets/puppet/puppet.png" alt="Puppeteer collective interview">
+              <img src="assets/puppet/IMG_4708.jpg" alt="Puppeteer collective interview">
             </div>
           </div>
         </a>
@@ -604,4 +612,42 @@
 
   <script src="script.js"></script>
 </body>
+  <script>
+    // Read More toggle functionality
+    const readMoreToggle = document.getElementById('readMoreToggle');
+    const readMoreCol = document.getElementById('readMoreCol');
+    
+    if (readMoreToggle && readMoreCol) {
+      // Initialize: show by default on desktop, hide on mobile
+      if (window.innerWidth > 800) {
+        readMoreCol.classList.remove('hidden');
+        readMoreToggle.textContent = 'Hide More';
+      } else {
+        readMoreCol.classList.add('hidden');
+        readMoreToggle.textContent = 'Read More';
+      }
+      
+      readMoreToggle.addEventListener('click', () => {
+        readMoreCol.classList.toggle('hidden');
+        readMoreToggle.textContent = readMoreCol.classList.contains('hidden') ? 'Read More' : 'Hide More';
+      });
+      
+      // Update on window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 800) {
+          // Desktop: show by default (remove hidden class)
+          if (readMoreCol.classList.contains('hidden')) {
+            readMoreCol.classList.remove('hidden');
+            readMoreToggle.textContent = 'Hide More';
+          }
+        } else {
+          // Mobile: respect toggle state
+          if (readMoreCol.classList.contains('hidden')) {
+            readMoreToggle.textContent = 'Read More';
+          }
+        }
+      });
+    }
+  </script>
+
 </html>

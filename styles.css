@@ -24,6 +24,64 @@ html, body {
 /* Interview pages: 3 columns (no video) */
 .grid-root.interview-layout {
   grid-template-columns: 1fr 3fr 1fr 1fr; /* menu (1fr), interview (3fr), read-more (1fr), blank space (1fr) */
+  position: relative;
+}
+
+/* Header row for interview pages with toggle button */
+.interview-header {
+  position: fixed;
+  top: 22px; /* Match homepage: grid padding (12px) + menu-col padding (10px) */
+  left: 22px; /* Match homepage: grid padding (12px) + menu-col padding (10px) */
+  right: 12px; /* Keep right edge at grid padding for toggle button */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1100; /* Higher than read-more overlay (1000) so button stays visible */
+  pointer-events: none; /* Allow clicks to pass through to elements below */
+}
+
+.interview-header .site-title {
+  pointer-events: auto;
+  margin: 0;
+  flex-shrink: 0;
+  width: auto;
+}
+
+.read-more-toggle {
+  pointer-events: auto;
+  background: white;
+  border: 1px solid #000;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.read-more-toggle:hover {
+  background: #f5f5f5;
+}
+
+.read-more-col.hidden {
+  display: none;
+}
+
+/* On desktop, read-more is visible by default but still toggleable */
+@media (min-width: 801px) {
+  .grid-root.interview-layout .read-more-col {
+    display: flex;
+  }
+  
+  .grid-root.interview-layout .read-more-col.hidden {
+    display: none !important;
+  }
+  
+  /* Hide toggle button on desktop */
+  .read-more-toggle {
+    display: none !important;
+  }
 }
 
 /* Remove borders from menu and read-more columns on interview pages */
@@ -446,12 +504,121 @@ html, body {
   margin: 0 auto;
 }
 
+/* Image carousel */
+.image-carousel {
+  margin: 20px auto;
+  max-width: 100%;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  width: 100%;
+  max-height: 70vh;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #000;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1.2em;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+.carousel-button:hover {
+  background: #f5f5f5;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Mobile styles for interview narrative */
 @media (max-width: 768px) {
   .interview-narrative {
     max-width: 100%;
     margin: 20px 0;
     padding: 15px 10px;
+  }
+  
+  /* Mobile carousel fixes */
+  .image-carousel {
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-slides {
+    width: 100%;
+  }
+  
+  .carousel-slide {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    flex-basis: 100%;
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .carousel-button {
+    padding: 6px 10px;
+    font-size: 1em;
+  }
+  
+  .carousel-button.prev {
+    left: 5px;
+  }
+  
+  .carousel-button.next {
+    right: 5px;
   }
 }
 .main-col {
@@ -479,13 +646,37 @@ html, body {
     padding-bottom: 0; /* no extra space */
   }
   .video-col { display: none; }
-  .read-more-col { 
-    display: block; /* show read more section */
-    order: 3; /* after main content */
-    width: 100%;
-    height: auto;
-    max-height: none;
-    overflow-y: visible;
+  .grid-root.interview-layout .read-more-col { 
+    display: none !important; /* hidden by default on mobile */
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow-y: auto;
+    background: white;
+    z-index: 1000;
+    padding: 20px;
+    padding-top: 50px; /* Add extra top padding to clear the header */
+    box-sizing: border-box;
+  }
+  
+  .grid-root.interview-layout .read-more-col:not(.hidden) {
+    display: flex !important; /* show when not hidden */
+    flex-direction: column;
+  }
+  
+  /* Hide the "Read More" header on mobile */
+  .grid-root.interview-layout .read-more-col h2 {
+    display: none;
+  }
+  
+  /* Show toggle button on mobile */
+  .read-more-toggle {
+    display: block;
   }
   .menu-col { order: 1; width: 100%; max-width: none; }
   /* Main body with proper height */
@@ -557,6 +748,11 @@ html, body {
 /* Hide control panel and category buttons on interview pages for all screen sizes */
 .grid-root.interview-layout .control-panel,
 .grid-root.interview-layout .category-panel {
+  display: none;
+}
+
+/* Hide site-title in menu-col on interview pages since it's in the header */
+.grid-root.interview-layout .menu-col .site-title {
   display: none;
 }
 
