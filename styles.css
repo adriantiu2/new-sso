@@ -643,9 +643,35 @@ html, body {
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
     height: auto; /* allow natural height */
-    padding-bottom: 0; /* no extra space */
+    padding: 12px; /* Keep padding for homepage */
   }
   .video-col { display: none; }
+  
+  /* Ensure homepage columns are visible on mobile */
+  .grid-root:not(.interview-layout) .menu-col {
+    display: flex !important;
+    visibility: visible;
+    order: 1;
+  }
+  
+  .grid-root:not(.interview-layout) .main-col {
+    display: block !important;
+    visibility: visible;
+    order: 2;
+  }
+  
+  /* Show read-more column on homepage mobile, below menu and main */
+  .grid-root:not(.interview-layout) .read-more-col {
+    display: flex !important;
+    visibility: visible;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+    overflow: visible !important;
+  }
   .grid-root.interview-layout .read-more-col { 
     display: none !important; /* hidden by default on mobile */
     position: fixed !important;
