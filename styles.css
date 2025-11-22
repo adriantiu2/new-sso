@@ -671,6 +671,12 @@ html, body {
     display: flex !important;
     visibility: visible;
     order: 1;
+    padding: 0; /* Remove padding to match interview page title position */
+  }
+  
+  /* Add padding to menu-top to maintain spacing for buttons */
+  .grid-root:not(.interview-layout) .menu-top {
+    padding: 0 0 12px 0; /* Add bottom padding for spacing */
   }
   
   .grid-root:not(.interview-layout) .main-col {
@@ -761,6 +767,12 @@ html, body {
     grid-template-columns: 1fr;
     height: 100vh;
     padding: 0;
+  }
+  
+  /* Adjust interview header position on mobile to match homepage title */
+  .interview-header {
+    top: 12px;
+    left: 12px;
   }
 
   .grid-root.interview-layout .menu-col {
