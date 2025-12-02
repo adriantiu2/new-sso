@@ -666,5 +666,42 @@
     // Initialize carousel
     initCarousel('mohCarousel');
   </script>
+  <script>
+    // Read More toggle functionality
+    const readMoreToggle = document.getElementById('readMoreToggle');
+    const readMoreCol = document.getElementById('readMoreCol');
+    
+    if (readMoreToggle && readMoreCol) {
+      // Initialize: show by default on desktop, hide on mobile
+      if (window.innerWidth > 800) {
+        readMoreCol.classList.remove('hidden');
+        readMoreToggle.textContent = 'Hide More';
+      } else {
+        readMoreCol.classList.add('hidden');
+        readMoreToggle.textContent = 'Read More';
+      }
+      
+      readMoreToggle.addEventListener('click', () => {
+        readMoreCol.classList.toggle('hidden');
+        readMoreToggle.textContent = readMoreCol.classList.contains('hidden') ? 'Read More' : 'Hide More';
+      });
+      
+      // Update on window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 800) {
+          // Desktop: show by default (remove hidden class)
+          if (readMoreCol.classList.contains('hidden')) {
+            readMoreCol.classList.remove('hidden');
+            readMoreToggle.textContent = 'Hide More';
+          }
+        } else {
+          // Mobile: respect toggle state
+          if (readMoreCol.classList.contains('hidden')) {
+            readMoreToggle.textContent = 'Read More';
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
