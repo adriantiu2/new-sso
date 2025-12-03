@@ -107,6 +107,26 @@ html, body {
   position: relative;
 }
 
+.background-event-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: #000;
+  z-index: 0;
+  pointer-events: none;
+  white-space: pre-line;
+}
+
+/* Hide background text on interview pages */
+.grid-root.interview-layout .background-event-text {
+  display: none;
+}
+
 .read-more-col {
   padding: 10px;
   display: flex;
@@ -283,10 +303,10 @@ html, body {
 }
 
 /* Ensure each block stacks; higher z-index later sections on top */
-#shop { z-index: 1; }
-#about { z-index: 2; }
-#stockists { z-index: 3; }
-#interviews { z-index: 4; }
+#shop { z-index: 10; }
+#about { z-index: 10; }
+#stockists { z-index: 10; }
+#interviews { z-index: 10; }
 
 /* hidden */
 .hidden { display: none; }
@@ -357,12 +377,30 @@ html, body {
   background: beige;
   border: 1px solid #000;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 6px;
   position: absolute;
   transition: transform 0.8s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.stockist-box strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+
+.stockist-box small {
+  display: block;
+  font-size: 0.7em;
+  line-height: 1.1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Interviews (falling names) */

@@ -16,6 +16,56 @@ const shopImageUrls = [
   "assets/shop/sso5cover.png"
 ];
 const numStockists = 12;
+const stockistsData = [
+  {
+    name: "Oven Universe",
+    address: "Japan, 〒060-0042 Hokkaido, Sapporo, Chuo Ward, Odorinishi, 17 Chome−1-7 庭ビル 1F"
+  },
+  {
+    name: "Sheep Harajuku",
+    address: "1F Laforet Harajuku, 1-11-6 Jingumae, Shibuya, Tokyo 1500001"
+  },
+  {
+    name: "Susan Unique Market",
+    address: "大手2-10-1神沢屋ビル1F, Matsumoto, Nagano 3900874"
+  },
+  {
+    name: "Printed Matter",
+    address: "231 11th Ave, New York, NY 10001"
+  },
+  {
+    name: "Bungee Space",
+    address: "13 Stanton St, New York, NY 10002"
+  },
+  {
+    name: "Iconic Magazines",
+    address: "188 Mulberry St, New York, NY 10012"
+  },
+  {
+    name: "Casa Magazines",
+    address: "22 8th Ave, New York, NY 10014"
+  },
+  {
+    name: "Dale Zine",
+    address: "50 NE 40th St, Miami, FL 33137"
+  },
+  {
+    name: "Heavy Manners Library",
+    address: "1200 N Alvarado St Los Angeles, CA 90026"
+  },
+  {
+    name: "Homebody LA",
+    address: "1011 E. Main St., Alhambra, CA 91801"
+  },
+  {
+    name: "Toutoune Gallery",
+    address: "998 Bathurst St, Toronto ON"
+  },
+  {
+    name: "Gutter Pop Comics",
+    address: "1421 Hertel Ave, Buffalo, NY 14216"
+  }
+];
 const interviewsList = [
   "Yuan Lee",
   "Alex auder", 
@@ -249,9 +299,10 @@ function initStockists() {
   for (let i=0;i<numStockists;i++) {
     const el = document.createElement("div");
     el.className = "stockist-box";
-    const shopName = `Shop ${i+1}`;
-    const address = `123${i} Star Ave, Suite ${10+i}`;
-    el.innerHTML = `<strong>${shopName}</strong><br><small>${address}</small>`;
+    const stockist = stockistsData[i];
+    const shopName = stockist ? stockist.name : `Shop ${i+1}`;
+    const address = stockist ? stockist.address : `123${i} Star Ave, Suite ${10+i}`;
+    el.innerHTML = `<strong>${shopName}</strong><small>${address}</small>`;
     area.appendChild(el);
     // compute grid pos with better spacing
     const r = Math.floor(i/cols);
@@ -499,15 +550,6 @@ function init() {
   
   // Apply full-width thumbnails to some read-more links
   initReadMoreThumbnails();
-  
-  // Make shop button active by default
-  const shopBtn = document.getElementById("btn-shop");
-  const shopBlock = contentBlocks.shop;
-  if (shopBtn && shopBlock) {
-    shopBtn.classList.add("active");
-    shopBlock.classList.remove("hidden");
-    shopBlock.setAttribute("aria-hidden", "false");
-  }
   
   // start animation
   lastTs = null;
