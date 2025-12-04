@@ -149,6 +149,7 @@ html, body {
   overflow: hidden;
   min-width: 0; /* allow shrinking */
   width: 100%; /* take full allocated space */
+  display: none; /* Hidden on desktop - can be re-enabled by changing to display: block; */
 }
 
 /* Read More column styling */
@@ -383,6 +384,49 @@ html, body {
 .shop-area a {
   position: absolute;
   display: block;
+}
+
+/* Sold out overlay - positioned relative to anchor */
+.sold-out-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid hotpink;
+  box-sizing: border-box;
+  z-index: 10;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shop-area a.active .sold-out-overlay {
+  display: flex;
+}
+
+/* Hide the image when overlay is shown, but preserve its space */
+.shop-area a.active .shop-item-sold-out {
+  opacity: 0;
+}
+
+/* Ensure anchor maintains border when image is hidden */
+.shop-area a.active {
+  border: 2px solid hotpink;
+  background: white;
+}
+
+.sold-out-text {
+  color: #000;
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 /* bouncing items (images) */

@@ -185,12 +185,46 @@ const shopItems = []; // {el, x,y, vx, vy, w,h, link}
 function initShop() {
   shopImageUrls.forEach((url,idx) => {
     const a = document.createElement("a");
-    a.href = "https://www.w3schools.com"; // placeholder external link
-    a.target = "_blank";
+    // Set links based on image
+    if (url.includes("sso5cover.png")) {
+      a.href = "https://superstarsonly.metalabel.com/bagazine?variantId=1";
+      a.target = "_blank";
+    } else if (url.includes("sso4cover.png")) {
+      a.href = "https://superstarsonly.metalabel.com/record_koxa7zrdrxo7k34zb?variantId=1";
+      a.target = "_blank";
+    } else {
+      // No link for sso2cover.png and sso3cover.png
+      a.href = "#";
+      a.onclick = (e) => e.preventDefault();
+    }
     const img = document.createElement("img");
     img.src = url;
     img.className = "shop-item";
-    a.appendChild(img);
+    
+    // Add sold out overlay for sso2cover.png and sso3cover.png
+    if (url.includes("sso2cover.png") || url.includes("sso3cover.png")) {
+      img.classList.add("shop-item-sold-out");
+      const overlay = document.createElement("div");
+      overlay.className = "sold-out-overlay";
+      const soldOutText = document.createElement("div");
+      soldOutText.className = "sold-out-text";
+      soldOutText.textContent = "Sold Out";
+      overlay.appendChild(soldOutText);
+      a.appendChild(img);
+      a.appendChild(overlay);
+      
+      // Add click handler to toggle active state
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        // Set overlay dimensions to match image's current rendered size
+        const rect = img.getBoundingClientRect();
+        overlay.style.width = rect.width + "px";
+        overlay.style.height = rect.height + "px";
+        a.classList.toggle("active");
+      });
+    } else {
+      a.appendChild(img);
+    }
     shopArea.appendChild(a);
     // random position inside area (use client size for accurate inner bounds)
     const areaW = shopArea.clientWidth;
