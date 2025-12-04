@@ -276,7 +276,8 @@ html, body {
 
 /* Title styling: Arial Black at full width */
 .site-title {
-  font-family: "Arial Black", "Arial Black", Gadget, sans-serif;
+  font-family: "Arial Black", "Arial-Black", "Arial Black", Gadget, sans-serif;
+  font-weight: 900;
   text-align: left;
   letter-spacing: 0.02em;
   width: auto;
