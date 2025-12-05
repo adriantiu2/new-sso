@@ -260,36 +260,92 @@ const waveSpeed = 2; // words per second
 function initAbout() {
   if (!aboutText) return;
   
-  // Get the innerHTML to preserve line breaks
+  // Get the innerHTML to preserve HTML structure
   const html = aboutText.innerHTML;
+  
+  // Use a temporary container to parse HTML
+  const temp = document.createElement('div');
+  temp.innerHTML = html;
   
   // Clear the paragraph and rebuild with color wave words
   aboutText.innerHTML = '';
   
-  // Split by spaces but preserve line breaks
-  const parts = html.split(/(\s+|<br\s*\/?>)/);
   let wordIndex = 0;
   
-  parts.forEach((part, index) => {
-    if (part.trim() === '' || part.match(/^\s+$/)) {
-      // Preserve whitespace
-      aboutText.appendChild(document.createTextNode(part));
-    } else if (part.match(/^<br\s*\/?>$/i)) {
-      // Preserve line breaks
-      aboutText.appendChild(document.createElement('br'));
-    } else {
-      // Create colored word span
-      const span = document.createElement('span');
-      span.textContent = part;
-      span.className = 'about-word';
-      span.style.display = 'inline-block';
-      span.style.transition = 'color 0.3s ease';
-      aboutText.appendChild(span);
+  // Process nodes recursively
+  function processNode(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      // Split text into words
+      const text = node.textContent;
+      const words = text.split(/(\s+)/);
       
-      // Each word gets a color index based on its position
-      aboutWords.push({ el: span, colorIndex: wordIndex % waveColors.length });
-      wordIndex++;
+      words.forEach(word => {
+        if (word.trim() === '' || word.match(/^\s+$/)) {
+          // Preserve whitespace
+          aboutText.appendChild(document.createTextNode(word));
+        } else {
+          // Create colored word span
+          const span = document.createElement('span');
+          span.textContent = word;
+          span.className = 'about-word';
+          span.style.display = 'inline-block';
+          span.style.transition = 'color 0.3s ease';
+          aboutText.appendChild(span);
+          
+          // Each word gets a color index based on its position
+          aboutWords.push({ el: span, colorIndex: wordIndex % waveColors.length });
+          wordIndex++;
+        }
+      });
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      if (node.tagName === 'BR') {
+        // Preserve line breaks
+        aboutText.appendChild(document.createElement('br'));
+      } else if (node.tagName === 'A') {
+        // Create link element
+        const link = document.createElement('a');
+        link.href = node.getAttribute('href') || '';
+        const target = node.getAttribute('target');
+        if (target) {
+          link.setAttribute('target', target);
+        }
+        
+        // Process link text into word spans for color wave effect
+        const linkText = node.textContent;
+        const linkWords = linkText.split(/(\s+)/);
+        
+        linkWords.forEach(word => {
+          if (word.trim() === '' || word.match(/^\s+$/)) {
+            // Preserve whitespace
+            link.appendChild(document.createTextNode(word));
+          } else {
+            // Create colored word span
+            const span = document.createElement('span');
+            span.textContent = word;
+            span.className = 'about-word';
+            span.style.display = 'inline-block';
+            span.style.transition = 'color 0.3s ease';
+            link.appendChild(span);
+            
+            // Each word gets a color index based on its position
+            aboutWords.push({ el: span, colorIndex: wordIndex % waveColors.length });
+            wordIndex++;
+          }
+        });
+        
+        aboutText.appendChild(link);
+      } else {
+        // For other elements, process their children
+        Array.from(node.childNodes).forEach(child => {
+          processNode(child);
+        });
+      }
     }
+  }
+  
+  // Process all nodes from the temporary container
+  Array.from(temp.childNodes).forEach(child => {
+    processNode(child);
   });
 }
 

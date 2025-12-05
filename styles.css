@@ -366,7 +366,7 @@ html, body {
 }
 
 /* Ensure each block stacks; higher z-index later sections on top */
-#shop { z-index: 10; }
+#shop { z-index: 20; }
 #about { z-index: 10; }
 #stockists { z-index: 10; }
 #interviews { z-index: 10; }
@@ -385,6 +385,7 @@ html, body {
 .shop-area a {
   position: absolute;
   display: block;
+  z-index: 1;
 }
 
 /* Sold out overlay - positioned relative to anchor */
@@ -463,6 +464,10 @@ html, body {
 .about-word {
   display: inline-block;
   transition: color 0.3s ease;
+}
+
+.about-area a {
+  text-decoration: none;
 }
 
 /* Stockists layout: boxes */
