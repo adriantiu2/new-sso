@@ -13,7 +13,8 @@ const shopImageUrls = [
   "assets/shop/sso2cover.png",
   "assets/shop/sso3cover.png",
   "assets/shop/sso4cover.png",
-  "assets/shop/sso5cover.png"
+  "assets/shop/sso5cover.png",
+  "assets/shop/sso6cover.png"
 ];
 const numStockists = 12;
 const stockistsData = [
@@ -186,7 +187,10 @@ function initShop() {
   shopImageUrls.forEach((url,idx) => {
     const a = document.createElement("a");
     // Set links based on image
-    if (url.includes("sso5cover.png")) {
+    if (url.includes("sso6cover.png")) {
+      a.href = "https://superstarsonly.metalabel.com/record_vfk6xtztco9sf6h62?variantId=1";
+      a.target = "_blank";
+    } else if (url.includes("sso5cover.png")) {
       a.href = "https://superstarsonly.metalabel.com/bagazine?variantId=1";
       a.target = "_blank";
     } else if (url.includes("sso4cover.png")) {
